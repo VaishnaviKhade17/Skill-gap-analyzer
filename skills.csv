@@ -1,0 +1,77 @@
+skill,category,pattern
+Python,Programming,\bpython\b
+Java,Programming,\bjava\b(?!\s*script)
+JavaScript,Programming,javascript|\bjs\b|typescript
+SQL,Data,\bsql\b|mysql|postgres|sqlite
+Pandas,Data,pandas|dataframe
+NumPy,Data,numpy
+Statistics,Data,statistic|hypothesis test|probability
+Data Visualization,Data,tableau|power ?bi|matplotlib|seaborn|plotly|visuali[sz]ation
+Machine Learning,ML & AI,machine learning|\bml\b|regression|classification|random forest|xgboost
+Scikit-learn,ML & AI,scikit|sklearn
+Deep Learning,ML & AI,deep learning|neural network|\bcnn\b|\blstm\b
+PyTorch,ML & AI,pytorch|torch\b
+TensorFlow,ML & AI,tensorflow|keras
+NLP,ML & AI,\bnlp\b|natural language|transformers|spacy|nltk
+LLMs,ML & AI,\bllms?\b|large language|gpt|openai|prompt engineering|gemini|claude
+LangChain,ML & AI,langchain|llamaindex|langgraph
+RAG,ML & AI,\brag\b|retrieval[- ]augmented
+Vector Databases,ML & AI,vector (db|database)|pinecone|faiss|chroma|weaviate
+React,Web,react
+Node.js,Web,node\.?js|express
+HTML/CSS,Web,html|css|tailwind|bootstrap
+REST APIs,Web,rest(ful)?\b|\bapis?\b|graphql
+Web Frameworks,Web,django|flask|fastapi|spring boot
+MongoDB,Web,mongo|nosql|dynamodb
+Git,Tools,\bgit\b|github|gitlab
+Testing,Tools,unit test|pytest|jest|\btesting\b|\btdd\b
+System Design,Tools,system design|microservice|scalab|architecture
+Docker,Cloud & DevOps,docker|container
+Kubernetes,Cloud & DevOps,kubernetes|\bk8s\b
+AWS,Cloud & DevOps,\baws\b|azure|\bgcp\b|google cloud|sagemaker|ec2
+CI/CD,Cloud & DevOps,ci\/?cd|jenkins|github actions
+Linux,Cloud & DevOps,linux|bash|shell script|ubuntu
+Terraform,Cloud & DevOps,terraform|ansible|infrastructure as code|\biac\b
+Communication,Soft Skills,communicat|presentation|stakeholder|collaborat
+Leadership,Soft Skills,\bled\b|\blead\b|leadership|mentor|team lead
+Excel,Business,excel|spreadsheet|pivot|vlookup|google sheets
+Business Analysis,Business,business analysis|requirement|\bbrd\b|bpmn|process mapping|gap analysis
+Project Management,Business,project manag|agile|scrum|jira|kanban|\bpmp\b
+Product Management,Business,product manag|roadmap|\bprd\b|user stories|\bmvp\b
+Financial Analysis,Business,financial|budget|forecast|accounting|\btally\b|\bgst\b|valuation
+Operations,Business,operations|supply chain|logistics|inventory|procurement|\bkpis?\b
+Marketing,Marketing & Sales,marketing|campaign|social media|brand|newsletter
+SEO & Analytics,Marketing & Sales,\bseo\b|google analytics|\bga4\b|google ads|\bsem\b
+Sales & CRM,Marketing & Sales,salesforce|\bcrm\b|lead generation|negotiat|\bsales\b|hubspot
+Customer Support,People & Ops,customer support|customer success|helpdesk|zendesk|\bcsat\b
+HR & Recruiting,People & Ops,recruit|talent acquisition|onboarding|payroll|\bhris\b|\bhr\b|sourcing
+Content Writing,Creative,copywriting|content writing|blog|editing|proofread|storytelling
+UI/UX Design,Creative,figma|wireframe|prototype|\bux\b|\bui\b|user research|adobe xd
+Cybersecurity,Security,cybersecurity|security|owasp|penetration|\bsiem\b|vulnerab|encryption
+Networking,Security,network|\btcp\b|\bdns\b|firewall|\bvpn\b
+Data Structures,Programming,data structure|algorithm|leetcode|competitive programming|\bdsa\b
+C/C++,Programming,c\+\+|\bc programming|embedded c|\bc language
+Mobile Development,Programming,android|\bios\b|flutter|kotlin|swift|react native
+Computer Vision,ML & AI,computer vision|opencv|image processing|yolo|object detection
+Big Data & ETL,Data,spark|hadoop|kafka|airflow|\betl\b|data warehouse|big data|\bdbt\b
+Embedded & IoT,Hardware,embedded|arduino|raspberry|microcontroller|\biot\b|esp32
+Database Admin,Data,database administrat|\bdba\b|query optimi|indexing|backup and recovery|replication
+Graphic Design,Creative,photoshop|illustrator|canva|graphic design|typography|branding|indesign
+Accounting,Business,accounting|bookkeeping|quickbooks|\btally\b|auditing|taxation|\bgst\b
+Teaching & Training,People & Ops,teaching|training|curriculum|lesson plan|tutor|instruct
+Blockchain,Programming,blockchain|solidity|ethereum|smart contract|web3
+Game Development,Programming,unity|unreal|game development|godot|game design
+Frontend Frameworks,Web,angular|\bvue\b|next\.?js|svelte
+C#/.NET,Programming,c#|\.net|asp\.net
+PHP,Web,\bphp\b|laravel|wordpress
+MLOps,ML & AI,mlops|mlflow|kubeflow|model deployment|model serving
+Robotics,Hardware,robotics|\bros2?\b|slam|kinematics|robot
+Monitoring,Cloud & DevOps,prometheus|grafana|monitoring|observability|datadog|\bsre\b
+IT Support,IT & Systems,it support|help ?desk|troubleshoot|active directory|windows server
+Ethical Hacking,Security,ethical hacking|penetration test|kali|metasploit|burp|\bctf\b
+ERP/SAP,Business,\bsap\b|\berp\b|oracle fusion|dynamics 365
+Signal Processing,Hardware,signal processing|\bfft\b|time series|kalman|filtering
+Electronics,Hardware,\bpcb\b|circuit|altium|kicad|vlsi|verilog|\bvhdl\b
+CAD & Design,Hardware,autocad|solidworks|catia|\bcad\b|ansys|mechanical design
+Video Editing,Creative,premiere|after effects|video editing|davinci|final cut|reels
+Legal & Compliance,Business,legal|compliance|contract|gdpr|regulat|paralegal

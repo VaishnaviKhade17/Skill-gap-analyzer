@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SkillGap – Resume Analyzer</title>
+<style>
+:root{--bg:#f6f3ff;--card:#fff;--tx:#14221c;--mu:#5d6b64;--bd:#ddd6f3;--ac:#6d28d9;--ac2:#ede9fe;--ok:#15803d;--wa:#b45309;--bad:#b91c1c;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#120f1f;--card:#1c1830;--tx:#e6efe9;--mu:#93a39a;--bd:#3a3563;--ac:#a78bfa;--ac2:#2a2250;--ok:#4ade80;--wa:#fbbf24;--bad:#f87171}}
+:root[data-theme="dark"]{--bg:#120f1f;--card:#1c1830;--tx:#e6efe9;--mu:#93a39a;--bd:#3a3563;--ac:#a78bfa;--ac2:#2a2250;--ok:#4ade80;--wa:#fbbf24;--bad:#f87171}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 "Segoe UI",system-ui,sans-serif}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;margin:0;font-weight:700}
+header{background:linear-gradient(100deg,#6d28d9,#db2777);color:#fff;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--bd);flex-wrap:wrap}
+header h1{font-size:22px}header p{margin:2px 0 0;color:#f3e8ff;font-size:13px}
+button,select,textarea,input{font:inherit;color:inherit}
+.btn{background:var(--ac);color:#fff;border:0;border-radius:8px;padding:9px 16px;cursor:pointer;font-weight:600}
+:root[data-theme="dark"] .btn{color:#06201c}@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn{color:#06201c}}
+.btn.ghost{background:transparent;color:var(--tx);border:1px solid var(--bd)}
+button:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+main{display:flex;flex-direction:column;gap:18px;padding:18px 20px;max-width:980px;margin:auto}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:16px}
+label{font-size:13px;color:var(--mu);display:block;margin:10px 0 4px}
+select,textarea{width:100%;background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:9px}
+textarea{min-height:190px;resize:vertical;font-size:13px}
+.row{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--bd);margin-bottom:14px;overflow-x:auto}
+.tab{background:none;border:0;padding:10px 14px;cursor:pointer;color:var(--mu);border-bottom:3px solid transparent;white-space:nowrap}
+.tab[aria-selected=true]{color:var(--tx);border-color:var(--ac);font-weight:600}
+.grid{display:grid;gap:14px}.g4{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.kpi b{font-size:28px;font-family:Georgia,serif;display:block}.kpi span{color:var(--mu);font-size:13px}
+.bar{height:9px;background:var(--bd);border-radius:5px;overflow:hidden}.bar i{display:block;height:100%;background:var(--ac)}
+.pill{display:inline-block;border-radius:20px;padding:1px 9px;font-size:12px;font-weight:600;border:1px solid currentColor}
+.hi{color:var(--bad)}.md{color:var(--wa)}.lo{color:var(--ok)}
+.chip{display:inline-block;background:var(--ac2);color:var(--tx);border-radius:6px;padding:3px 9px;margin:3px 4px 3px 0;font-size:13px}
+.chip.miss{background:transparent;border:1px dashed var(--bad);color:var(--bad)}
+.tbl{width:100%;border-collapse:collapse}.tbl td,.tbl th{padding:8px 6px;border-bottom:1px solid var(--bd);text-align:left;font-size:14px}
+.tbl th{color:var(--mu);font-weight:600;font-size:13px}.scroll{overflow-x:auto}
+.course{display:flex;flex-direction:column;gap:6px}.course h3{font-size:16px}
+.course a{color:var(--ac)}.course .m{color:var(--mu);font-size:13px}
+.tl{border-left:3px solid var(--ac);margin-left:8px;padding-left:16px}.tl>div{margin-bottom:16px;position:relative}
+.tl>div:before{content:"";position:absolute;left:-23px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--ac)}
+.empty{text-align:center;padding:60px 20px;color:var(--mu)}
+.ck li{list-style:none;margin:4px 0}.ck{padding:0;margin:8px 0 0}
+header .btn.ghost{color:#fff;border-color:#fff8}
+.seg{display:flex;gap:4px;background:var(--bg);padding:3px;border-radius:10px;border:1px solid var(--bd);width:max-content}.seg button{border:0;background:none;padding:5px 12px;border-radius:8px;cursor:pointer}.seg button.on{background:var(--ac);color:var(--bg);font-weight:600}
+.roles{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:6px;margin-top:8px;max-height:300px;overflow:auto}
+.rc{display:flex;align-items:center;gap:6px;text-align:left;border:1px solid var(--bd);background:var(--bg);border-radius:10px;padding:7px;cursor:pointer;font-size:13px;transition:transform .15s}.rc span{font-size:18px}.rc.on{border-color:var(--ac);background:var(--ac2);font-weight:600}.rc:hover{transform:translateY(-2px)}
+.drop{border:2px dashed var(--ac);border-radius:12px;padding:16px;text-align:center;margin-top:8px;background:var(--ac2)}.drop[hidden]{display:none}.drop.over{background:var(--bd)}
+.hero{display:flex;gap:16px;align-items:center;margin-bottom:14px}.big{font-size:54px}
+.btn.ghost{color:var(--tx)!important}header .btn.ghost{color:#fff!important}
+.empty h2{color:var(--tx)}#rq,#sd{width:100%;background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:8px}
+.hint{font-size:13px;color:var(--mu);margin:8px 0 0}.course .btn{width:100%}
+</style></head><body>
+<header><div><h1>SkillGap Quest 🎯</h1><p>Level up your resume: find skill gaps and get a plan for 100 roles</p></div>
+<button class="btn ghost" id="theme" aria-label="Switch theme">🌙 Dark mode</button></header>
+<main>
+<section class="card" aria-label="Input">
+<label>1. Choose your dream role</label><div class="seg"><button data-f="all" class="on">All</button><button data-f="tech">Tech</button><button data-f="non">Non-tech</button></div><input id="rq" type="search" placeholder="Search 100 roles…" aria-label="Search roles" style="margin-top:8px"><div id="roles" class="roles"></div>
+<label for="resume">2. Add your resume</label><div class="seg"><button data-m="paste" class="on">Paste text</button><button data-m="upload">Upload file</button></div>
+<div id="drop" class="drop" hidden><b>Drop a PDF, DOCX or TXT here</b><br>or <button class="btn ghost" id="pick">Browse files</button><input type="file" id="file" accept=".pdf,.docx,.txt" hidden><div id="fstat" role="status" style="margin-top:6px;font-size:13px"></div></div>
+<textarea id="resume" placeholder="Paste the full text of your resume here…"></textarea>
+<div class="row"><button class="btn" id="go">Analyze resume</button><button class="btn ghost" id="clear">Clear text</button></div><p class="hint"><b>Analyze resume</b> scans your text. <b>Clear text</b> empties the box.</p>
+<p style="font-size:12px;color:var(--mu)">Analysis runs entirely in your browser. Nothing is uploaded.</p>
+</section>
+<section id="out"><div class="card empty"><h2>Your dashboard appears here</h2><p>Choose a role, paste or upload your resume, then select Analyze resume.</p></div></section>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+<script>
+const $=s=>document.querySelector(s);
+// name, category, regex, course title, provider, hours
+const S=[
+["Python","Programming",/\bpython\b/,"Python for Everybody","Coursera",30],
+["Java","Programming",/\bjava\b(?!\s*script)/,"Java Programming Fundamentals","Coursera",40],
+["JavaScript","Programming",/javascript|\bjs\b|typescript/,"Modern JavaScript Course","freeCodeCamp",35],
+["SQL","Data",/\bsql\b|mysql|postgres|sqlite/,"SQL for Data Analysis","Udacity",20],
+["Pandas","Data",/pandas|dataframe/,"Data Analysis with Pandas","Kaggle Learn",8],
+["NumPy","Data",/numpy/,"NumPy Fundamentals","Kaggle Learn",6],
+["Statistics","Data",/statistic|hypothesis test|probability/,"Statistics for Data Science","Coursera",25],
+["Data Visualization","Data",/tableau|power ?bi|matplotlib|seaborn|plotly|visuali[sz]ation/,"Data Visualization","Kaggle Learn",10],
+["Machine Learning","ML & AI",/machine learning|\bml\b|regression|classification|random forest|xgboost/,"Machine Learning Specialization","Coursera",60],
+["Scikit-learn","ML & AI",/scikit|sklearn/,"Intro to Machine Learning","Kaggle Learn",10],
+["Deep Learning","ML & AI",/deep learning|neural network|\bcnn\b|\blstm\b/,"Deep Learning Specialization","Coursera",80],
+["PyTorch","ML & AI",/pytorch|torch\b/,"PyTorch for Deep Learning","Udemy",30],
+["TensorFlow","ML & AI",/tensorflow|keras/,"TensorFlow Developer Course","Coursera",40],
+["NLP","ML & AI",/\bnlp\b|natural language|transformers|spacy|nltk/,"Natural Language Processing","DeepLearning.AI",50],
+["LLMs","ML & AI",/\bllms?\b|large language|gpt|openai|prompt engineering|gemini|claude/,"Generative AI with LLMs","Coursera",16],
+["LangChain","ML & AI",/langchain|llamaindex|langgraph/,"LangChain for LLM Apps","DeepLearning.AI",6],
+["RAG","ML & AI",/\brag\b|retrieval[- ]augmented/,"Retrieval Augmented Generation","DeepLearning.AI",8],
+["Vector Databases","ML & AI",/vector (db|database)|pinecone|faiss|chroma|weaviate/,"Vector Databases Basics","DeepLearning.AI",5],
+["React","Web",/react/,"React Complete Guide","Udemy",40],
+["Node.js","Web",/node\.?js|express/,"Node.js Developer Course","Udemy",35],
+["HTML/CSS","Web",/html|css|tailwind|bootstrap/,"Responsive Web Design","freeCodeCamp",30],
+["REST APIs","Web",/rest(ful)?\b|\bapis?\b|graphql/,"APIs and Web Services","Coursera",15],
+["Web Frameworks","Web",/django|flask|fastapi|spring boot/,"FastAPI / Django Crash Course","YouTube",15],
+["MongoDB","Web",/mongo|nosql|dynamodb/,"MongoDB Basics","MongoDB University",10],
+["Git","Tools",/\bgit\b|github|gitlab/,"Git and GitHub","Coursera",6],
+["Testing","Tools",/unit test|pytest|jest|\btesting\b|\btdd\b/,"Software Testing","Udacity",12],
+["System Design","Tools",/system design|microservice|scalab|architecture/,"System Design Fundamentals","educative.io",30],
+["Docker","Cloud & DevOps",/docker|container/,"Docker for Beginners","Udemy",10],
+["Kubernetes","Cloud & DevOps",/kubernetes|\bk8s\b/,"Kubernetes Fundamentals","Linux Foundation",25],
+["AWS","Cloud & DevOps",/\baws\b|azure|\bgcp\b|google cloud|sagemaker|ec2/,"Cloud Practitioner Prep","AWS Skill Builder",25],
+["CI/CD","Cloud & DevOps",/ci\/?cd|jenkins|github actions/,"CI/CD with GitHub Actions","GitHub Skills",8],
+["Linux","Cloud & DevOps",/linux|bash|shell script|ubuntu/,"Linux Command Line","Coursera",15],
+["Terraform","Cloud & DevOps",/terraform|ansible|infrastructure as code|\biac\b/,"Terraform Associate Prep","HashiCorp",15],
+["Communication","Soft Skills",/communicat|presentation|stakeholder|collaborat/,"Technical Communication","Coursera",10],
+["Leadership","Soft Skills",/\bled\b|\blead\b|leadership|mentor|team lead/,"Leading Teams","Coursera",12],
+["Excel","Business",/excel|spreadsheet|pivot|vlookup|google sheets/,"Excel for Data Analysis","Coursera",15],
+["Business Analysis","Business",/business analysis|requirement|\bbrd\b|bpmn|process mapping|gap analysis/,"Business Analysis Fundamentals","Coursera",20],
+["Project Management","Business",/project manag|agile|scrum|jira|kanban|\bpmp\b/,"Google Project Management","Coursera",40],
+["Product Management","Business",/product manag|roadmap|\bprd\b|user stories|\bmvp\b/,"Digital Product Management","Coursera",25],
+["Financial Analysis","Business",/financial|budget|forecast|accounting|\btally\b|\bgst\b|valuation/,"Financial Analysis Basics","Coursera",25],
+["Operations","Business",/operations|supply chain|logistics|inventory|procurement|\bkpis?\b/,"Operations Management","Coursera",25],
+["Marketing","Marketing & Sales",/marketing|campaign|social media|brand|newsletter/,"Digital Marketing Fundamentals","Google Digital Garage",20],
+["SEO & Analytics","Marketing & Sales",/\bseo\b|google analytics|\bga4\b|google ads|\bsem\b/,"SEO and Analytics","HubSpot Academy",12],
+["Sales & CRM","Marketing & Sales",/salesforce|\bcrm\b|lead generation|negotiat|\bsales\b|hubspot/,"Sales Foundations","HubSpot Academy",15],
+["Customer Support","People & Ops",/customer support|customer success|helpdesk|zendesk|\bcsat\b/,"Customer Service Fundamentals","Coursera",12],
+["HR & Recruiting","People & Ops",/recruit|talent acquisition|onboarding|payroll|\bhris\b|\bhr\b|sourcing/,"HR Management Basics","Coursera",20],
+["Content Writing","Creative",/copywriting|content writing|blog|editing|proofread|storytelling/,"Content Writing Masterclass","Udemy",15],
+["UI/UX Design","Creative",/figma|wireframe|prototype|\bux\b|\bui\b|user research|adobe xd/,"Google UX Design","Coursera",60],
+["Cybersecurity","Security",/cybersecurity|security|owasp|penetration|\bsiem\b|vulnerab|encryption/,"Cybersecurity Fundamentals","Coursera",40],
+["Networking","Security",/network|\btcp\b|\bdns\b|firewall|\bvpn\b/,"Networking Basics","Cisco NetAcad",25],
+["Data Structures","Programming",/data structure|algorithm|leetcode|competitive programming|\bdsa\b/],
+["C/C++","Programming",/c\+\+|\bc programming|embedded c|\bc language/],
+["Mobile Development","Programming",/android|\bios\b|flutter|kotlin|swift|react native/],
+["Computer Vision","ML & AI",/computer vision|opencv|image processing|yolo|object detection/],
+["Big Data & ETL","Data",/spark|hadoop|kafka|airflow|\betl\b|data warehouse|big data|\bdbt\b/],
+["Embedded & IoT","Hardware",/embedded|arduino|raspberry|microcontroller|\biot\b|esp32/],
+["Database Admin","Data",/database administrat|\bdba\b|query optimi|indexing|backup and recovery|replication/],
+["Graphic Design","Creative",/photoshop|illustrator|canva|graphic design|typography|branding|indesign/],
+["Accounting","Business",/accounting|bookkeeping|quickbooks|\btally\b|auditing|taxation|\bgst\b/],
+["Teaching & Training","People & Ops",/teaching|training|curriculum|lesson plan|tutor|instruct/],
+["Blockchain","Programming",/blockchain|solidity|ethereum|smart contract|web3/],
+["Game Development","Programming",/unity|unreal|game development|godot|game design/],
+["Frontend Frameworks","Web",/angular|\bvue\b|next\.?js|svelte/],
+["C#/.NET","Programming",/c#|\.net|asp\.net/],
+["PHP","Web",/\bphp\b|laravel|wordpress/],
+["MLOps","ML & AI",/mlops|mlflow|kubeflow|model deployment|model serving/],
+["Robotics","Hardware",/robotics|\bros2?\b|slam|kinematics|robot/],
+["Monitoring","Cloud & DevOps",/prometheus|grafana|monitoring|observability|datadog|\bsre\b/],
+["IT Support","IT & Systems",/it support|help ?desk|troubleshoot|active directory|windows server/],
+["Ethical Hacking","Security",/ethical hacking|penetration test|kali|metasploit|burp|\bctf\b/],
+["ERP/SAP","Business",/\bsap\b|\berp\b|oracle fusion|dynamics 365/],
+["Signal Processing","Hardware",/signal processing|\bfft\b|time series|kalman|filtering/],
+["Electronics","Hardware",/\bpcb\b|circuit|altium|kicad|vlsi|verilog|\bvhdl\b/],
+["CAD & Design","Hardware",/autocad|solidworks|catia|\bcad\b|ansys|mechanical design/],
+["Video Editing","Creative",/premiere|after effects|video editing|davinci|final cut|reels/],
+["Legal & Compliance","Business",/legal|compliance|contract|gdpr|regulat|paralegal/]
+].map(a=>({n:a[0],c:a[1],re:a[2],t:a[3],p:a[4],h:a[5]}));
+const SK=Object.fromEntries(S.map(s=>[s.n,s]));
+const R={
+"Data Scientist":{Python:3,SQL:3,Pandas:2,NumPy:2,Statistics:3,"Machine Learning":3,"Scikit-learn":2,"Data Visualization":2,"Deep Learning":1,Git:1,Communication:1},
+"ML Engineer":{Python:3,"Machine Learning":3,"Deep Learning":3,PyTorch:2,TensorFlow:1,Docker:2,AWS:2,"CI/CD":1,Git:1,SQL:1,Statistics:1},
+"GenAI / LLM Engineer":{Python:3,LLMs:3,NLP:2,LangChain:2,RAG:3,"Vector Databases":2,"REST APIs":2,Docker:1,Git:1,"Deep Learning":1},
+"Full Stack Developer":{JavaScript:3,React:3,"Node.js":2,"HTML/CSS":2,"REST APIs":2,SQL:2,MongoDB:1,Git:2,Docker:1,Testing:1},
+"Backend Developer":{Python:3,"REST APIs":3,"Web Frameworks":2,SQL:3,Docker:2,Git:2,"System Design":2,Testing:2,AWS:1,MongoDB:1},
+"DevOps Engineer":{Linux:3,Docker:3,Kubernetes:3,"CI/CD":3,AWS:3,Terraform:2,Git:2,Python:1},
+"Data Analyst":{SQL:3,Excel:3,"Data Visualization":3,Statistics:2,Python:2,Pandas:1,Communication:2},
+"Cybersecurity Analyst":{Cybersecurity:3,Networking:3,Linux:3,Python:2,Docker:1,Communication:1},
+"QA Engineer":{Testing:3,Python:2,JavaScript:1,"CI/CD":2,Git:2,SQL:2,"REST APIs":2,Communication:1},
+"UI/UX Designer":{"UI/UX Design":3,"HTML/CSS":2,Communication:3,"Content Writing":1,"Product Management":1,Leadership:1},
+"Product Manager":{"Product Management":3,"Business Analysis":2,"Project Management":2,"Data Visualization":2,SQL:1,Communication:3,Leadership:2},
+"Digital Marketer":{Marketing:3,"SEO & Analytics":3,"Content Writing":2,"Data Visualization":1,Communication:2,Excel:1},
+"Business Analyst":{"Business Analysis":3,SQL:2,Excel:3,"Data Visualization":2,"Project Management":2,Communication:3},
+"Financial Analyst":{"Financial Analysis":3,Excel:3,SQL:1,"Data Visualization":2,Statistics:1,Communication:2},
+"HR / Recruiter":{"HR & Recruiting":3,Communication:3,Leadership:2,Excel:1,"Project Management":1},
+"Sales Executive":{"Sales & CRM":3,Communication:3,Marketing:1,Excel:1,Leadership:1,"Customer Support":1},
+"Content Writer":{"Content Writing":3,"SEO & Analytics":2,Marketing:2,Communication:3,"Data Visualization":1},
+"Project Manager":{"Project Management":3,Communication:3,Leadership:3,Excel:1,"Business Analysis":1,"Financial Analysis":1},
+"Customer Success":{"Customer Support":3,Communication:3,"Sales & CRM":2,Excel:1,"Project Management":1},
+"Operations Manager":{Operations:3,"Project Management":2,Excel:3,Leadership:3,"Financial Analysis":1,Communication:2},
+"Software Engineer":{Python:2,Java:2,JavaScript:1,"Data Structures":3,"System Design":2,Git:2,Testing:2,SQL:1,"CI/CD":1},
+"Data Engineer":{Python:3,SQL:3,"Big Data & ETL":3,AWS:2,Linux:1,Docker:1,Git:1,Pandas:1},
+"Mobile App Developer":{"Mobile Development":3,JavaScript:1,Java:1,"REST APIs":3,Git:2,Testing:1,"UI/UX Design":1,"System Design":1},
+"Cloud Engineer":{AWS:3,Linux:3,Docker:2,Kubernetes:2,Terraform:2,Networking:2,"CI/CD":1,Python:1},
+"Computer Vision Engineer":{"Computer Vision":3,Python:3,"Deep Learning":3,PyTorch:2,TensorFlow:1,NumPy:2,Docker:1,Git:1},
+"Database Administrator":{SQL:3,"Database Admin":3,Linux:2,Python:1,AWS:1,Networking:1},
+"Embedded / IoT Engineer":{"Embedded & IoT":3,"C/C++":3,Python:1,Networking:1,Linux:1,Git:1},
+"Social Media Manager":{Marketing:3,"Content Writing":3,"SEO & Analytics":2,"Graphic Design":2,Communication:2,"Data Visualization":1},
+"Graphic Designer":{"Graphic Design":3,"UI/UX Design":2,Marketing:1,Communication:2,"Content Writing":1},
+"Accountant":{Accounting:3,Excel:3,"Financial Analysis":2,Communication:1,SQL:1},
+"Supply Chain Analyst":{Operations:3,Excel:3,SQL:2,"Data Visualization":2,"Financial Analysis":1,Communication:2},
+"Technical Writer":{"Content Writing":3,Communication:3,Git:2,"REST APIs":1,"HTML/CSS":1,"Project Management":1},
+"Management Consultant":{"Business Analysis":3,Excel:3,"Data Visualization":2,"Financial Analysis":2,Communication:3,Leadership:2,"Project Management":1},
+"E-commerce Manager":{Marketing:3,"SEO & Analytics":2,"Sales & CRM":2,Excel:2,Operations:2,"Customer Support":1,Communication:1},
+"Trainer / Instructional Designer":{"Teaching & Training":3,"Content Writing":2,Communication:3,"UI/UX Design":1,"Project Management":1}};
+const TECH=["Data Scientist","ML Engineer","GenAI / LLM Engineer","Full Stack Developer","Backend Developer","DevOps Engineer","Data Analyst","Cybersecurity Analyst","QA Engineer","UI/UX Designer","Software Engineer","Data Engineer","Mobile App Developer","Cloud Engineer","Computer Vision Engineer","Database Administrator","Embedded / IoT Engineer"];
+const E={"Data Scientist":"📊","ML Engineer":"🤖","GenAI / LLM Engineer":"✨","Full Stack Developer":"🧩","Backend Developer":"⚙️","DevOps Engineer":"🚢","Data Analyst":"📈","Cybersecurity Analyst":"🛡️","QA Engineer":"🐞","UI/UX Designer":"🎨","Product Manager":"🧭","Digital Marketer":"📣","Business Analyst":"💼","Financial Analyst":"💰","HR / Recruiter":"🤝","Sales Executive":"🏷️","Content Writer":"✍️","Project Manager":"🗓️","Customer Success":"💬","Operations Manager":"🏭","Software Engineer":"💻","Data Engineer":"🛠️","Mobile App Developer":"📱","Cloud Engineer":"☁️","Computer Vision Engineer":"👁️","Database Administrator":"🗄️","Embedded / IoT Engineer":"🔌","Social Media Manager":"📲","Graphic Designer":"🖌️","Accountant":"🧾","Supply Chain Analyst":"📦","Technical Writer":"📝","Management Consultant":"🧠","E-commerce Manager":"🛒","Trainer / Instructional Designer":"🎓"};
+const addRoles=(txt,tech)=>txt.trim().split("\n").forEach(l=>{const[n,e,k]=l.split("|"),o={};k.split(",").forEach(x=>{const i=x.lastIndexOf(":");o[x.slice(0,i)]=+x.slice(i+1)});R[n]=o;E[n]=e;if(tech)TECH.push(n)});
+addRoles(`Frontend Developer|🖥️|JavaScript:3,React:3,HTML/CSS:3,Frontend Frameworks:1,REST APIs:2,Git:2,Testing:1,UI/UX Design:1
+Java Developer|☕|Java:3,Web Frameworks:3,SQL:2,REST APIs:2,Git:2,Testing:2,Docker:1,System Design:1
+.NET Developer|🔷|C#/.NET:3,SQL:3,REST APIs:2,Git:2,Testing:2,AWS:1,Docker:1
+PHP / Web Developer|🐘|PHP:3,SQL:3,HTML/CSS:2,JavaScript:2,Git:2,REST APIs:1
+Python Developer|🐍|Python:3,Web Frameworks:3,SQL:2,REST APIs:2,Git:2,Testing:2,Docker:1
+Blockchain Developer|⛓️|Blockchain:3,JavaScript:2,Data Structures:2,Git:2,Testing:1,Cybersecurity:1
+Game Developer|🎮|Game Development:3,C#/.NET:2,C/C++:2,Data Structures:2,Git:2,Graphic Design:1
+MLOps Engineer|🔁|MLOps:3,Python:3,Docker:3,Kubernetes:2,CI/CD:2,AWS:2,Machine Learning:2,Git:1
+AI Research Scientist|🔬|Deep Learning:3,Machine Learning:3,Python:3,PyTorch:3,Statistics:2,NLP:1,Communication:1
+NLP Engineer|🗣️|NLP:3,Python:3,Deep Learning:2,LLMs:2,PyTorch:2,Machine Learning:2,Git:1
+AI Application Developer|🧪|LLMs:3,LangChain:3,RAG:2,Vector Databases:2,Python:3,REST APIs:2,Docker:1
+BI Developer|📉|Data Visualization:3,SQL:3,Excel:2,Big Data & ETL:2,Statistics:1,Communication:2
+Site Reliability Engineer|🚨|Monitoring:3,Linux:3,Kubernetes:2,Docker:2,Python:2,CI/CD:2,AWS:2
+IT Support Engineer|🖨️|IT Support:3,Networking:2,Linux:1,Communication:3,Customer Support:2
+Systems Administrator|🗂️|Linux:3,IT Support:2,Networking:2,Monitoring:2,Python:1,AWS:1,Cybersecurity:1
+Network Engineer|📡|Networking:3,Cybersecurity:2,Linux:2,Python:1,IT Support:1,Monitoring:1
+Penetration Tester|🕵️|Ethical Hacking:3,Cybersecurity:3,Networking:2,Linux:2,Python:2,Communication:1
+SOC Analyst|🚓|Cybersecurity:3,Monitoring:2,Networking:2,Linux:2,Python:1,Communication:2
+Robotics Engineer|🦾|Robotics:3,Python:3,C/C++:2,Embedded & IoT:2,Linux:2,Computer Vision:1,Git:1
+Signal Processing Engineer|〰️|Signal Processing:3,Python:3,NumPy:2,Statistics:2,Data Visualization:2,Machine Learning:1,C/C++:1
+Electronics Engineer|🔋|Electronics:3,Embedded & IoT:2,C/C++:2,Signal Processing:1,CAD & Design:1,Communication:1
+Mechanical Design Engineer|🔩|CAD & Design:3,Communication:2,Project Management:1,Excel:1,Statistics:1,Python:1
+Test Automation Engineer|✅|Testing:3,Python:3,CI/CD:2,Git:2,REST APIs:2,JavaScript:1,Docker:1
+Solutions Architect|🏛️|AWS:3,System Design:3,Communication:3,Networking:1,Docker:1,Cybersecurity:1,Database Admin:1
+Analytics Engineer|🧮|SQL:3,Big Data & ETL:3,Data Visualization:2,Python:2,Git:2,Communication:1
+Platform Engineer|🧱|Kubernetes:3,Terraform:3,CI/CD:3,Docker:2,Linux:2,AWS:2,Monitoring:1
+WordPress Developer|📰|PHP:3,HTML/CSS:3,JavaScript:2,SQL:1,SEO & Analytics:1,Git:1
+Android Developer|🟢|Mobile Development:3,Java:3,REST APIs:2,Git:2,Testing:1,SQL:1,UI/UX Design:1
+Flutter Developer|🦋|Mobile Development:3,UI/UX Design:2,REST APIs:2,Git:2,Testing:1,JavaScript:1
+Firmware Engineer|💾|C/C++:3,Embedded & IoT:3,Electronics:2,Git:2,Linux:1,Testing:1
+Edge AI Engineer|📟|Embedded & IoT:3,Deep Learning:2,Python:2,C/C++:2,TensorFlow:2,Signal Processing:1,Linux:1
+Technical Program Manager|🗺️|Project Management:3,Communication:3,System Design:2,Leadership:2,Product Management:1,Data Visualization:1
+ERP / SAP Consultant|🏢|ERP/SAP:3,Business Analysis:3,Communication:3,SQL:2,Project Management:2,Excel:1`,true);
+addRoles(`Brand Manager|🎖️|Marketing:3,Communication:3,Content Writing:2,Leadership:2,Graphic Design:1,Data Visualization:1
+Public Relations Specialist|📢|Communication:3,Content Writing:3,Marketing:2,Leadership:1,SEO & Analytics:1
+Event Manager|🎪|Project Management:3,Communication:3,Operations:2,Leadership:2,Excel:1,Marketing:1
+Copywriter|🖋️|Content Writing:3,Marketing:3,SEO & Analytics:2,Communication:2
+Video Editor|🎬|Video Editing:3,Graphic Design:2,Communication:2,Content Writing:1,Marketing:1
+Business Development Executive|🚀|Sales & CRM:3,Communication:3,Marketing:2,Excel:1,Leadership:1,Business Analysis:1
+Account Manager|🗝️|Sales & CRM:3,Communication:3,Customer Support:2,Excel:1,Project Management:1
+Customer Support Executive|🎧|Customer Support:3,Communication:3,Sales & CRM:1,Excel:1,IT Support:1
+Talent Acquisition Specialist|🔎|HR & Recruiting:3,Communication:3,Sales & CRM:1,Excel:1,Leadership:1
+HR Generalist|👥|HR & Recruiting:3,Communication:3,Legal & Compliance:2,Excel:2,Leadership:1,Teaching & Training:1
+Payroll & Compliance Executive|💵|Accounting:3,Excel:3,Legal & Compliance:2,HR & Recruiting:2,Communication:1
+Auditor|📑|Accounting:3,Excel:3,Financial Analysis:2,Legal & Compliance:2,Communication:2
+Tax Consultant|🏦|Accounting:3,Legal & Compliance:3,Excel:2,Communication:2,Financial Analysis:1
+Investment Banking Analyst|🏙️|Financial Analysis:3,Excel:3,Communication:2,Data Visualization:1,Statistics:1
+Risk Analyst|⚠️|Financial Analysis:3,Excel:3,Statistics:2,Legal & Compliance:2,SQL:1,Communication:1
+Market Research Analyst|🔭|Statistics:3,Data Visualization:3,Excel:2,Marketing:2,Communication:2,SQL:1
+Business Operations Associate|🧰|Operations:3,Excel:3,Project Management:2,Business Analysis:2,Communication:2,SQL:1
+Logistics Coordinator|🚚|Operations:3,Communication:3,Excel:2,Project Management:1,Customer Support:1
+Procurement Specialist|🛍️|Operations:3,Communication:3,Excel:2,Legal & Compliance:2,Financial Analysis:1
+Quality Manager|🏅|Operations:3,Project Management:2,Statistics:2,Leadership:2,Communication:2,Legal & Compliance:1
+Scrum Master / Agile Coach|🏉|Project Management:3,Leadership:3,Communication:3,Product Management:1,Teaching & Training:1
+Program Manager|🎛️|Project Management:3,Leadership:3,Communication:3,Business Analysis:1,Financial Analysis:1,Operations:1
+Content Strategist|🧵|Content Writing:3,SEO & Analytics:3,Marketing:2,Communication:2,Data Visualization:1
+SEO Specialist|🔍|SEO & Analytics:3,Content Writing:2,Marketing:2,HTML/CSS:1,Data Visualization:1,Excel:1
+Performance Marketing Manager|🎯|Marketing:3,SEO & Analytics:3,Data Visualization:2,Excel:2,Sales & CRM:1,Communication:1
+Email Marketing Specialist|✉️|Marketing:3,Content Writing:2,SEO & Analytics:2,Sales & CRM:2,HTML/CSS:1,Data Visualization:1
+Community Manager|🫂|Communication:3,Marketing:2,Content Writing:2,Customer Support:2,Graphic Design:1
+UX Researcher|🧐|UI/UX Design:3,Communication:3,Statistics:2,Data Visualization:2,Content Writing:1,Product Management:1
+School Teacher / Educator|🏫|Teaching & Training:3,Communication:3,Content Writing:2,Leadership:1,Excel:1
+Corporate Trainer|🪑|Teaching & Training:3,Communication:3,Leadership:2,HR & Recruiting:1,Content Writing:1,Project Management:1
+Healthcare Administrator|🏥|Operations:3,Communication:3,Excel:2,Leadership:2,Legal & Compliance:2,Accounting:1
+Legal & Compliance Associate|⚖️|Legal & Compliance:3,Communication:3,Content Writing:2,Excel:1,Project Management:1`,false);
+const SAMPLE=`Vaishnavi Rao | vaishnavi@example.com | +91 98765 43210
+SUMMARY
+Final-year engineering student with strong Python and data analysis skills.
+EDUCATION
+B.Tech Computer Science, 2027
+SKILLS
+Python, SQL, Pandas, NumPy, Matplotlib, Git, HTML, CSS
+PROJECTS
+Speed breaker detection: Built a Python pipeline with Pandas and NumPy to process accelerometer data, trained a random forest classifier (machine learning) reaching 92% accuracy.
+Dashboard: Developed visualization dashboards with Matplotlib and Plotly for 10,000+ sensor readings.
+EXPERIENCE
+Intern: Developed REST API endpoints with Flask, collaborated with a team of 4 and presented results to stakeholders.
+Led a student team of 3 for a hackathon project using GitHub.`;
+const st={res:null,plan:new Set(),hpw:8,tab:"Overview",role:"Data Scientist",f:"all",q:"",pick:{},cf:"all",done:new Set(),start:new Date().toISOString().slice(0,10)};
+function drawRoles(){const L=Object.keys(R).filter(r=>(st.f=="all"||(st.f=="tech")==TECH.includes(r))&&r.toLowerCase().includes(st.q));
+$("#roles").innerHTML=L.map(r=>`<button class="rc ${r==st.role?"on":""}" data-r="${r}"><span>${E[r]}</span>${r}</button>`).join("");
+document.querySelectorAll(".rc").forEach(b=>b.onclick=()=>{st.role=b.dataset.r;drawRoles();if(st.res)analyze()})}
+drawRoles();
+const esc=s=>s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+function analyze(){
+ const text=$("#resume").value.trim(),role=st.role;
+ if(text.length<40){$("#out").innerHTML='<div class="card empty"><h2>Add more resume text</h2><p>Paste at least a few lines so the analyzer has skills to find.</p></div>';return}
+ const low=text.toLowerCase(),found={};
+ S.forEach(s=>{const m=low.match(new RegExp(s.re.source,"g"));if(m)found[s.n]=m.length});
+ const req=R[role],tot=Object.values(req).reduce((a,b)=>a+b,0);
+ const f=c=>c>=3?1:c==2?.85:.7;
+ let got=0;const have=[],miss=[];
+ Object.entries(req).forEach(([k,w])=>{if(found[k]){got+=w*f(found[k]);have.push({k,w,c:found[k]})}else miss.push({k,w})});
+ miss.sort((a,b)=>b.w-a.w);
+ const extra=Object.keys(found).filter(k=>!req[k]);
+ const cats={};Object.entries(req).forEach(([k,w])=>{const c=SK[k].c;cats[c]=cats[c]||{t:0,g:0};cats[c].t+=w;if(found[k])cats[c].g+=w*f(found[k])});
+ const rc=Object.keys(cats).length<3?Object.fromEntries(Object.entries(req).map(([k,w])=>[k,{t:w,g:found[k]?w*f(found[k]):0}])):cats;
+ const checks=[
+ ["Email address",/[\w.+-]+@[\w-]+\.\w+/.test(text)],["Phone number",/\+?\d[\d\s-]{8,}/.test(text)],
+ ["Quantified results (numbers or %)",/\d+\s?%|\d{2,}\+?\s?(users|readings|records|samples)|\b\d+x\b/i.test(text)],
+ ["Action verbs (built, developed, led…)",(low.match(/\b(built|developed|designed|implemented|led|created|trained|optimized|deployed|analy[sz]ed)\b/g)||[]).length>=3],
+ ["Skills section",/skills/i.test(text)],["Projects or experience",/project|experience|intern/i.test(text)],["Education",/education|b\.?tech|b\.?e\b|bachelor|degree/i.test(text)],
+ ["Length 150–800 words",(()=>{const w=text.split(/\s+/).length;return w>=150&&w<=800})()]];
+ st.res={role,found,req,tot,pts:Math.round(got*10)/10,score:Math.round(got/tot*100),have,miss,extra,cats,rc,checks,words:text.split(/\s+/).length};
+ st.plan=new Set(miss.slice(0,3).map(m=>m.k));st.done=new Set();render();
+}
+const pct=(g,t)=>Math.round(g/t*100);
+const LV=v=>v<30?["Seedling","🌱"]:v<55?["Rising Star","⭐"]:v<80?["Role-Ready","🚀"]:["Hire-Me Legend","🏆"];
+function hero(r){const l=LV(r.score),n=r.miss[0];
+return `<div class="card hero"><div class="big">${E[r.role]}</div><div style="flex:1;min-width:200px"><h2>${l[1]} ${l[0]} for ${r.role}</h2><div class="bar" style="margin:8px 0"><i style="width:${r.score}%"></i></div><div style="color:var(--mu)">${r.score}/100 XP. ${n?`Next quest: learn <b>${n.k}</b> to level up fastest.`:"All quests complete. Time to apply!"}</div></div></div>`}
+function stars(r){const L=Object.entries(r.req).sort((a,b)=>b[1]-a[1]),n=L.length,RR={3:72,2:118,1:160};let ln="",nd="";
+L.forEach(([k,w],i)=>{const a=(-90+i*360/n)*Math.PI/180,x=RR[w]*Math.cos(a),y=RR[w]*Math.sin(a),has=r.found[k],pl=st.plan.has(k),rad=5+w*3;
+ln+=`<line x1="0" y1="0" x2="${x}" y2="${y}" stroke="var(--bd)"/>`;
+nd+=`<g ${has?"":`data-p="${k}" tabindex="0" role="button" style="cursor:pointer"`}><circle cx="${x}" cy="${y}" r="${rad}" fill="${has?"var(--ok)":pl?"var(--wa)":"var(--card)"}" stroke="${has?"var(--ok)":"var(--bad)"}" stroke-width="2" ${has?"":'stroke-dasharray="3 2"'}/><text x="${x}" y="${y+rad+12}" font-size="10.5" text-anchor="middle" fill="var(--tx)">${k}</text></g>`});
+return `<svg viewBox="-215 -200 430 400" width="100%" style="max-width:560px" role="img" aria-label="Skill constellation">${ln}<circle r="30" fill="var(--ac2)"/><text y="10" font-size="28" text-anchor="middle">${E[r.role]}</text>${nd}</svg>`}
+function expl(r){return `<details class="card" open style="margin-bottom:14px"><summary style="cursor:pointer;font-weight:600">What does ${r.score}% mean?</summary><p style="margin:8px 0">It is your <b>role match score</b>: how well your resume covers the skills a ${r.role} needs. Each required skill has a weight (3 = essential, 2 = important, 1 = nice to have). A skill found on your resume earns points: about 70% of its weight for one mention, up to full weight if it appears 3 or more times. Score = points earned ÷ total points.</p><p style="margin:8px 0">You earned <b>${r.pts}</b> of <b>${r.tot}</b> points (${r.have.length} of ${Object.keys(r.req).length} required skills found).</p><p style="margin:8px 0;color:var(--mu);font-size:13px">Guide: under 30% = major gaps, 30–54% = Rising Star, 55–79% = Role-Ready, 80%+ = Hire-Me Legend. It matches keywords only, so treat it as a guide, not a hiring verdict.</p></details>`}
+function ring(v){const r=52,c=2*Math.PI*r,col=v>=70?"var(--ok)":v>=40?"var(--wa)":"var(--bad)";
+return `<svg viewBox="0 0 130 130" width="130" height="130" role="img" aria-label="Match score ${v}%"><circle cx="65" cy="65" r="${r}" fill="none" stroke="var(--bd)" stroke-width="12"/><circle cx="65" cy="65" r="${r}" fill="none" stroke="${col}" stroke-width="12" stroke-linecap="round" stroke-dasharray="${c*v/100} ${c}" transform="rotate(-90 65 65)"/><text x="65" y="72" text-anchor="middle" font-size="28" font-family="Georgia,serif" fill="var(--tx)" font-weight="700">${v}%</text></svg>`}
+function radar(cats){const k=Object.keys(cats),n=k.length,cx=150,cy=130,r=85;
+ const pt=(i,v)=>{const a=-Math.PI/2+i*2*Math.PI/n;return [cx+r*v*Math.cos(a),cy+r*v*Math.sin(a)]};
+ const poly=f=>k.map((c,i)=>pt(i,f(cats[c])).join(",")).join(" ");
+ let g=[.25,.5,.75,1].map(l=>`<polygon points="${k.map((c,i)=>pt(i,l).join(",")).join(" ")}" fill="none" stroke="var(--bd)"/>`).join("");
+ g+=k.map((c,i)=>{const p=pt(i,1.28);return `<text x="${p[0]}" y="${p[1]}" font-size="12" text-anchor="middle" fill="var(--mu)">${c}</text>`}).join("");
+ return `<svg viewBox="0 0 300 260" width="100%" style="max-width:380px" role="img" aria-label="Category coverage radar">${g}<polygon points="${poly(c=>1)}" fill="none" stroke="var(--mu)" stroke-dasharray="4 3"/><polygon points="${poly(c=>c.g/c.t)}" fill="var(--ac)" fill-opacity=".3" stroke="var(--ac)" stroke-width="2"/></svg>`}
+const pri=w=>w>=3?'<span class="pill hi">High</span>':w==2?'<span class="pill md">Medium</span>':'<span class="pill lo">Low</span>';
+const CAT={};`Python|CS50's Introduction to Programming with Python@Harvard / edX@45|Python for Everybody Specialization@Coursera@60
+Java|Java Programming MOOC@University of Helsinki@80|Java Programming and Software Engineering Fundamentals@Coursera (Duke)@60
+JavaScript|JavaScript Algorithms and Data Structures@freeCodeCamp@60|The Complete JavaScript Course@Udemy@70
+SQL|Intro to SQL@Kaggle Learn@4|The Complete SQL Bootcamp@Udemy@9
+Pandas|Pandas@Kaggle Learn@4|Data Analysis with Pandas and Python@Udemy@20
+NumPy|NumPy Tutorial for Beginners@freeCodeCamp (YouTube)@1|Python for Data Science and Machine Learning Bootcamp@Udemy@25
+Statistics|Statistics and Probability@Khan Academy@40|Statistics with Python Specialization@Coursera (U. Michigan)@50
+Data Visualization|Data Visualization@Kaggle Learn@4|Data Visualization with Tableau Specialization@Coursera (UC Davis)@40
+Machine Learning|Machine Learning Crash Course@Google@15|Machine Learning Specialization@Coursera (Andrew Ng)@90
+Scikit-learn|Intro to Machine Learning@Kaggle Learn@3|Machine Learning with Python@Coursera (IBM)@20
+Deep Learning|Practical Deep Learning for Coders@fast.ai@70|Deep Learning Specialization@Coursera (DeepLearning.AI)@80
+PyTorch|PyTorch for Deep Learning Full Course@freeCodeCamp (YouTube)@25|PyTorch for Deep Learning Bootcamp@Udemy@50
+TensorFlow|TensorFlow 2.0 Complete Course@freeCodeCamp (YouTube)@7|TensorFlow Developer Professional Certificate@Coursera (DeepLearning.AI)@60
+NLP|Hugging Face NLP Course@Hugging Face@25|Natural Language Processing Specialization@Coursera (DeepLearning.AI)@80
+LLMs|ChatGPT Prompt Engineering for Developers@DeepLearning.AI@2|Generative AI with Large Language Models@Coursera (DeepLearning.AI + AWS)@16
+LangChain|LangChain for LLM Application Development@DeepLearning.AI@2|LangChain: Develop LLM Powered Applications@Udemy@10
+RAG|Building and Evaluating Advanced RAG@DeepLearning.AI@2|Retrieval Augmented Generation (RAG)@Coursera (DeepLearning.AI)@12
+Vector Databases|Vector Databases: from Embeddings to Applications@DeepLearning.AI@2|Vector Databases and Embeddings Course@Udemy@6
+React|React Course for Beginners@freeCodeCamp (YouTube)@12|React: The Complete Guide@Udemy@60
+Node.js|Node.js and Express.js Full Course@freeCodeCamp (YouTube)@8|The Complete Node.js Developer Course@Udemy@35
+HTML/CSS|Responsive Web Design@freeCodeCamp@40|The Web Developer Bootcamp@Udemy@60
+REST APIs|APIs for Beginners@freeCodeCamp (YouTube)@2|REST APIs with Flask and Python@Udemy@17
+Web Frameworks|FastAPI Course@freeCodeCamp (YouTube)@19|Django for Everybody@Coursera (U. Michigan)@40
+MongoDB|MongoDB Basics@MongoDB University@10|MongoDB: The Complete Developer's Guide@Udemy@17
+Git|Git and GitHub for Beginners@freeCodeCamp (YouTube)@1|Version Control with Git@Coursera (Atlassian)@10
+Testing|Software Testing Tutorial@Guru99@10|Software Testing and Automation Specialization@Coursera (U. Minnesota)@40
+System Design|The System Design Primer@GitHub@20|Grokking the System Design Interview@Educative@20
+Docker|Docker Tutorial for Beginners@TechWorld with Nana (YouTube)@3|Docker and Kubernetes: The Practical Guide@Udemy@23
+Kubernetes|Kubernetes Tutorial for Beginners@TechWorld with Nana (YouTube)@4|Kubernetes for the Absolute Beginners@Udemy@6
+AWS|AWS Cloud Practitioner Essentials@AWS Skill Builder@6|AWS Certified Cloud Practitioner@Udemy@14
+CI/CD|GitHub Actions tutorials@GitHub Skills@5|Jenkins, From Zero To Hero@Udemy@10
+Linux|Introduction to Linux@Linux Foundation / edX@40|Linux Mastery: Master the Linux Command Line@Udemy@11
+Terraform|Terraform tutorials@HashiCorp Developer@10|HashiCorp Certified Terraform Associate Prep@Udemy@12
+Communication|Communication Skills@Great Learning Academy@3|Improving Communication Skills@Coursera (UPenn)@10
+Leadership|Leadership Fundamentals@Great Learning Academy@3|Inspiring and Motivating Individuals@Coursera (U. Michigan)@15
+Excel|Excel for Beginners@Microsoft Learn@4|Excel Skills for Business Specialization@Coursera (Macquarie)@60
+Business Analysis|Introduction to Business Analysis@Alison@3|Business Analysis and Process Management@Coursera@15
+Project Management|Agile and Scrum Basics@Atlassian@5|Google Project Management Certificate@Coursera@120
+Product Management|Product Management Basics@Great Learning Academy@3|Digital Product Management Specialization@Coursera (U. Virginia)@20
+Financial Analysis|Finance and Capital Markets@Khan Academy@10|Financial Modeling and Valuation Analyst (FMVA)@CFI@80
+Operations|Supply Chain Fundamentals@MITx / edX@50|Operations Management@Coursera (Wharton)@20
+Marketing|Fundamentals of Digital Marketing@Google Digital Garage@40|Digital Marketing Specialization@Coursera (UIUC)@70
+SEO & Analytics|SEO Certification Course@HubSpot Academy@3|Search Engine Optimization (SEO) Specialization@Coursera (UC Davis)@40
+Sales & CRM|Inbound Sales Course@HubSpot Academy@4|Sales Training: Practical Sales Techniques@Udemy@10
+Customer Support|Customer Service Course@HubSpot Academy@3|Customer Service Fundamentals@LinkedIn Learning@2
+HR & Recruiting|Introduction to Human Resource Management@Alison@3|Human Resource Management: HR for People Managers@Coursera (U. Minnesota)@25
+Content Writing|Content Marketing Certification@HubSpot Academy@5|Content Strategy for Professionals@Coursera (Northwestern)@40
+UI/UX Design|Figma UI UX Design Tutorial@freeCodeCamp (YouTube)@6|Google UX Design Certificate@Coursera@160
+Cybersecurity|Cybersecurity Essentials@Cisco Networking Academy@30|Google Cybersecurity Certificate@Coursera@150
+Networking|Networking Basics@Cisco Networking Academy@20|The Bits and Bytes of Computer Networking@Coursera (Google)@25
+Data Structures|Data Structures and Algorithms Course@freeCodeCamp (YouTube)@8|Algorithms Specialization@Coursera (Stanford)@80
+C/C++|C Programming for Beginners@freeCodeCamp (YouTube)@4|Beginning C++ Programming@Udemy@45
+Mobile Development|Android Basics with Compose@Google Developers@40|The Complete Flutter Development Bootcamp@Udemy@28
+Computer Vision|OpenCV Python Tutorial@freeCodeCamp (YouTube)@4|Computer Vision Basics@Coursera (SUNY Buffalo)@20
+Big Data & ETL|Data Engineering Zoomcamp@DataTalks.Club@80|IBM Data Engineering Professional Certificate@Coursera@100
+Embedded & IoT|Arduino Programming Course@Arduino@10|Introduction to Embedded Systems Software@Coursera (CU Boulder)@20
+Database Admin|PostgreSQL Tutorial@postgresqltutorial.com@10|Databases and SQL for Data Science@Coursera (IBM)@20
+Graphic Design|Canva Design School@Canva@5|Graphic Design Specialization@Coursera (CalArts)@80
+Accounting|Accounting and Financial Statements@Khan Academy@15|Financial Accounting Fundamentals@Coursera (U. Virginia)@20
+Teaching & Training|Teaching Skills Basics@Alison@3|Instructional Design Foundations and Applications@Coursera@50
+Blockchain|Solidity and Smart Contract Full Course@freeCodeCamp (YouTube)@32|Blockchain Specialization@Coursera (U. Buffalo)@80
+Game Development|Unity Learn Pathways@Unity Learn@40|Complete C# Unity Game Developer 2D@Udemy@30
+Frontend Frameworks|Vue.js Course for Beginners@freeCodeCamp (YouTube)@4|Angular: The Complete Guide@Udemy@35
+C#/.NET|Take your first steps with C#@Microsoft Learn@10|C# Basics for Beginners@Udemy@5
+PHP|PHP Programming Language Tutorial@freeCodeCamp (YouTube)@7|PHP for Beginners: Become a PHP Master@Udemy@38
+MLOps|Made With ML@Made With ML@30|Machine Learning Engineering for Production (MLOps)@Coursera (DeepLearning.AI)@80
+Robotics|ROS Tutorials@ROS Documentation@15|Modern Robotics Specialization@Coursera (Northwestern)@80
+Monitoring|Prometheus Monitoring Tutorial@TechWorld with Nana (YouTube)@2|Site Reliability Engineering: Measuring and Managing Reliability@Coursera (Google Cloud)@10
+IT Support|IT Essentials@Cisco Networking Academy@70|Google IT Support Professional Certificate@Coursera@180
+Ethical Hacking|Ethical Hacking Full Course@freeCodeCamp (YouTube)@15|Learn Ethical Hacking From Scratch@Udemy@15
+ERP/SAP|SAP Learning Journeys@SAP Learning@20|SAP Fundamentals Course@Udemy@10
+Signal Processing|Signals and Systems@MIT OpenCourseWare@60|Digital Signal Processing Specialization@Coursera (EPFL)@60
+Electronics|Electrical Engineering Circuits@Khan Academy@20|Introduction to Electronics@Coursera (Georgia Tech)@40
+CAD & Design|Fusion 360 Tutorials for Beginners@Autodesk@10|SOLIDWORKS Beginner to Advanced@Udemy@20
+Video Editing|Video Editing Basics@Adobe Learn@5|Adobe Premiere Pro Masterclass@Udemy@15
+Legal & Compliance|Contract Law@Harvard / edX@40|Corporate Compliance Fundamentals@LinkedIn Learning@2`.split("\n").forEach(l=>{const[k,f,q]=l.split("|"),m=x=>{const a=x.split("@");return{t:a[0],p:a[1],h:+a[2]}};CAT[k]={f:m(f),p:m(q)}});
+const crs=k=>{const c=CAT[k]||{},pk=st.pick[k]||"f",x=c[pk]||{t:k+" course",p:"",h:10};return{...x,free:pk=="f"}};
+const PJ={Programming:"Solve 15 practice problems, then build a small app and push it to GitHub.",Data:"Analyze a public dataset (for example from Kaggle) and write 3 insights with charts.","ML & AI":"Train and evaluate a model on a public dataset and report the metrics in a README.",Web:"Build and deploy a small app that uses it (free tier on Netlify or Render).",Tools:"Apply it to one of your existing projects and document what changed.","Cloud & DevOps":"Set up a small end-to-end pipeline or deployment on a free tier.",Business:"Create a one-page case study or a sample deliverable.","Marketing & Sales":"Plan and run a mini campaign and record the results.","People & Ops":"Write a short process document or scenario write-up.",Creative:"Produce 3 portfolio pieces and publish them online.",Security:"Finish 3 hands-on labs (for example free rooms on TryHackMe).",Hardware:"Build a small sensor or device project and document the code and wiring.","Soft Skills":"Give a 5-minute talk or get a peer review and note the feedback."};
+function planStats(){const r=st.res,p=r.miss.filter(m=>st.plan.has(m.k)).map(m=>{const c=crs(m.k),pr=Math.ceil(c.h*.25);return{...m,c,pr,tot:c.h+pr}});
+ const hrs=p.reduce((a,m)=>a+m.tot,0);let add=0;p.forEach(m=>add+=m.w*.7);return{p,hrs,after:Math.min(100,r.score+Math.round(add/r.tot*100)),weeks:Math.ceil(hrs/st.hpw)}}
+function render(){
+ const r=st.res,ps=planStats(),T=["Overview","Skill gap","Courses","Roadmap"];
+ let h=`<div class="tabs" role="tablist">${T.map(t=>`<button class="tab" role="tab" aria-selected="${t==st.tab}" data-t="${t}">${t}</button>`).join("")}</div>`;
+ if(st.tab=="Overview"){
+ h+=hero(r)+expl(r)+`<div class="grid g4"><div class="card" style="text-align:center"><div style="display:flex;justify-content:center">${ring(r.score)}</div><b>Role match score</b><div style="color:var(--mu);font-size:13px">How much of what a ${r.role} needs is on your resume</div></div>
+ <div class="card kpi"><b>${r.have.length}/${Object.keys(r.req).length}</b><span>Required skills found for ${r.role}</span></div>
+ <div class="card kpi"><b>${r.miss.length}</b><span>Skill gaps (${r.miss.filter(m=>m.w==3).length} high priority)</span></div>
+ <div class="card kpi"><b>${ps.after}%</b><span>Projected match after your plan (${ps.hrs} h)</span></div></div>
+ <div class="grid g2" style="margin-top:14px"><div class="card" style="grid-column:1/-1"><h3>Your skill constellation</h3><p style="color:var(--mu);font-size:13px;margin:4px 0">Green stars are skills you have. Dashed red stars are gaps; the inner ring holds the most important ones. Tap a gap to add it to your plan (orange).</p><div style="text-align:center">${stars(r)}</div></div><div class="card"><h3>Coverage by category</h3><p style="color:var(--mu);font-size:13px;margin:4px 0">Solid line is your coverage. Dashed outline is what the role needs.</p><div style="text-align:center">${radar(r.rc)}</div></div>
+ <div class="card"><h3>Category scores</h3>${Object.entries(r.cats).map(([c,v])=>`<div style="margin:12px 0"><div style="display:flex;justify-content:space-between"><span>${c}</span><b>${pct(v.g,v.t)}%</b></div><div class="bar"><i style="width:${pct(v.g,v.t)}%"></i></div></div>`).join("")}</div>
+ <div class="card"><h3>Skills detected</h3><div style="margin-top:8px">${r.have.map(x=>`<span class="chip" title="${x.c} mention(s)">${x.k} · ${x.c>=3?"Strong":x.c==2?"Good":"Basic"}</span>`).join("")||"None of the required skills"}</div>
+ <h3 style="margin-top:14px">Transferable extras</h3><div>${r.extra.map(k=>`<span class="chip">${k}</span>`).join("")||'<span style="color:var(--mu)">None</span>'}</div></div>
+ <div class="card"><h3>Resume health check</h3><ul class="ck">${r.checks.map(c=>`<li><b class="${c[1]?"lo":"hi"}">${c[1]?"✔":"✘"}</b> ${c[0]}</li>`).join("")}</ul><p style="color:var(--mu);font-size:13px">${r.words} words detected.</p></div></div>`}
+ if(st.tab=="Skill gap"){
+ h+=`<div class="card"><h3>Missing skills for ${r.role}</h3>${r.miss.length?`<div class="scroll"><table class="tbl"><tr><th>Skill</th><th>Category</th><th>Priority</th><th>Study time</th></tr>${r.miss.map(m=>`<tr><td><span class="chip miss">${m.k}</span></td><td>${SK[m.k].c}</td><td>${pri(m.w)}</td><td>${crs(m.k).h} h</td></tr>`).join("")}</table></div>`:'<p class="lo">No gaps found. Your resume covers every required skill.</p>'}</div>
+ <div class="card" style="margin-top:14px"><h3>Skill strength on your resume</h3>${r.have.map(x=>`<div style="margin:10px 0"><div style="display:flex;justify-content:space-between"><span>${x.k}</span><span style="color:var(--mu)">${x.c} mention(s)</span></div><div class="bar"><i style="width:${Math.min(100,x.c*34)}%"></i></div></div>`).join("")}<p style="color:var(--mu);font-size:13px">Strength reflects how often a skill appears. Skills named only once look weak to recruiters, so back them with a project line.</p></div>`}
+ if(st.tab=="Courses"){
+ const opt=(k,t)=>{const c=CAT[k][t],sel=(st.pick[k]||"f")==t;return `<div style="border:2px solid ${sel?"var(--ac)":"var(--bd)"};border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:4px"><div><span class="pill ${t=="f"?"lo":"md"}">${t=="f"?"Free":"Paid"}</span> <span class="m">Widely recommended</span></div><b>${c.t}</b><div class="m">${c.p} · about ${c.h} hours</div><a target="_blank" rel="noopener" href="https://www.google.com/search?q=${encodeURIComponent(c.t+" "+c.p)}">Open course page</a><button class="btn ${sel?"":"ghost"}" data-c="${k}|${t}">${sel?"✔ Selected":"Select this course"}</button></div>`};
+ h+=`<div class="card"><h3>How this page works</h3><p style="margin:6px 0">Every gap has one free and one paid course from well-known providers. Select the one you prefer, then press <b>Add to roadmap</b>. The Roadmap tab is built from the courses you add.</p><div class="seg">${[["all","Free + Paid"],["f","Free only"],["p","Paid only"]].map(x=>`<button data-cf="${x[0]}" class="${st.cf==x[0]?"on":""}">${x[1]}</button>`).join("")}</div></div><div class="grid g2" style="margin-top:14px">${r.miss.map(m=>{const k=m.k,on=st.plan.has(k);return `<div class="card course"><div>${pri(m.w)} <b>${k}</b> <span class="m">${SK[k].c}</span></div>${st.cf!="p"?opt(k,"f"):""}${st.cf!="f"?opt(k,"p"):""}<button class="btn ${on?"":"ghost"}" data-p="${k}">${on?"✔ In roadmap (tap to remove)":"+ Add to roadmap"}</button></div>`}).join("")||'<div class="card">No courses needed.</div>'}</div>`}
+ if(st.tab=="Roadmap"){
+ const it=[...ps.p].sort((a,b)=>b.w-a.w),d0=new Date(st.start+"T00:00:00"),fm=n=>new Date(d0.getTime()+n*864e5).toLocaleDateString(undefined,{day:"numeric",month:"short"});
+ let cum=0,total=0,done=0;
+ const blocks=it.map((m,i)=>{const k=m.k,c=m.c,a=Math.floor(cum/st.hpw);cum+=m.tot;const b=Math.max(a,Math.ceil(cum/st.hpw)-1);
+ const steps=[`Learn: ${c.t} (${c.free?"free":"paid"}, ${c.p}), about ${c.h} h`,`Practice (about ${m.pr} h): ${PJ[SK[k].c]||PJ.Tools}`,`Update your resume: add ${k} to your Skills section and write one bullet, for example "Built [project] using ${k}, achieving [result with a number]".`,`Checkpoint: explain the ${k} basics out loud and keep a link to your project.`];
+ total+=steps.length;
+ const li=steps.map((t,j)=>{const id=k+":"+j,on=st.done.has(id);if(on)done++;return `<li style="list-style:none;margin:6px 0"><label style="display:flex;gap:8px;color:var(--tx);margin:0;font-size:14px"><input type="checkbox" data-d="${id}" ${on?"checked":""}><span style="${on?"text-decoration:line-through;color:var(--mu)":""}">${t}</span></label></li>`}).join("");
+ return `<div><b>Phase ${i+1}: ${k}</b> ${pri(m.w)}<div style="color:var(--mu)">Week ${a+1}${b>a?"–"+(b+1):""} · ${fm(a*7)} to ${fm(b*7+6)} · ${m.tot} h</div><ul style="padding:0;margin:6px 0">${li}</ul></div>`}).join("");
+ h+=`<div class="card"><h3>Your study roadmap</h3><div class="grid g2" style="margin:8px 0"><div><label for="hpw">Hours per week: <b>${st.hpw}</b></label><input type="range" id="hpw" min="2" max="30" value="${st.hpw}" style="width:100%"></div><div><label for="sd">Start date</label><input type="date" id="sd" value="${st.start}"></div></div>`+(it.length?`<p><b>${ps.hrs} hours</b> in total (course time plus about 25% practice), roughly <b>${ps.weeks} week(s)</b>, finishing around <b>${fm(ps.weeks*7-1)}</b>. Projected match: <b>${r.score}% → ${ps.after}%</b>.</p><div class="bar"><i style="width:${total?Math.round(done/total*100):0}%"></i></div><p style="color:var(--mu);font-size:13px">${done} of ${total} steps done. Tick each step as you finish it.</p><div class="tl">${blocks}<div><b>Final step: re-check</b><div style="color:var(--mu)">After the last phase, paste your updated resume above and select Analyze resume again. Then apply for ${r.role} roles.</div></div></div>`:`<p>Add courses on the Courses tab to build your roadmap.</p>`)+`</div>`}
+ $("#out").innerHTML=h;
+ document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{st.tab=b.dataset.t;render()});
+ document.querySelectorAll("[data-p]").forEach(b=>b.onclick=()=>{const k=b.dataset.p;st.plan.has(k)?st.plan.delete(k):st.plan.add(k);render()});
+ document.querySelectorAll("[data-c]").forEach(b=>b.onclick=()=>{const[k,t]=b.dataset.c.split("|");st.pick[k]=t;render()});
+ document.querySelectorAll("[data-cf]").forEach(b=>b.onclick=()=>{st.cf=b.dataset.cf;if(st.cf!="all")st.res.miss.forEach(m=>st.pick[m.k]=st.cf);render()});
+ document.querySelectorAll("[data-d]").forEach(b=>b.onchange=()=>{const k=b.dataset.d;st.done.has(k)?st.done.delete(k):st.done.add(k);render()});
+ const sd=$("#sd");if(sd)sd.onchange=e=>{st.start=e.target.value||st.start;render()};
+ const sl=$("#hpw");if(sl)sl.oninput=e=>{st.hpw=+e.target.value;render();$("#hpw").focus()};
+}
+async function readFile(f){const n=f.name.toLowerCase(),fs=$("#fstat");let t="";fs.textContent="Reading "+f.name+"…";
+try{if(n.endsWith(".pdf")){pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";const d=await pdfjsLib.getDocument({data:await f.arrayBuffer()}).promise;for(let i=1;i<=d.numPages;i++){const c=await(await d.getPage(i)).getTextContent();t+=c.items.map(x=>x.str).join(" ")+"\n"}}
+else if(n.endsWith(".docx"))t=(await mammoth.extractRawText({arrayBuffer:await f.arrayBuffer()})).value;
+else t=await f.text()}catch(e){fs.textContent="Could not read this file. Paste the text instead.";return}
+if(t.trim().length<40){fs.textContent="No text found (scanned image?). Paste the text instead.";return}
+fs.textContent="Loaded "+f.name+". You can edit the text below.";$("#resume").value=t;analyze()}
+$("#pick").onclick=()=>$("#file").click();$("#file").onchange=e=>e.target.files[0]&&readFile(e.target.files[0]);
+const dz=$("#drop");dz.ondragover=e=>{e.preventDefault();dz.classList.add("over")};dz.ondragleave=()=>dz.classList.remove("over");dz.ondrop=e=>{e.preventDefault();dz.classList.remove("over");e.dataTransfer.files[0]&&readFile(e.dataTransfer.files[0])};
+document.querySelectorAll("[data-f]").forEach(b=>b.onclick=()=>{st.f=b.dataset.f;document.querySelectorAll("[data-f]").forEach(x=>x.classList.toggle("on",x==b));drawRoles()});
+document.querySelectorAll("[data-m]").forEach(b=>b.onclick=()=>{$("#drop").hidden=b.dataset.m!="upload";document.querySelectorAll("[data-m]").forEach(x=>x.classList.toggle("on",x==b))});
+$("#go").onclick=analyze;$("#clear").onclick=()=>{$("#resume").value=""};
+let dark=matchMedia("(prefers-color-scheme: dark)").matches;const setTheme=()=>{document.documentElement.dataset.theme=dark?"dark":"light";$("#theme").textContent=dark?"☀️ Light mode":"🌙 Dark mode"};setTheme();$("#theme").onclick=()=>{dark=!dark;setTheme()};
+$("#rq").oninput=e=>{st.q=e.target.value.toLowerCase();drawRoles()};
+</script></body></html>

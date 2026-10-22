@@ -1,0 +1,637 @@
+role,role_type,skill,weight
+Data Scientist,tech,Python,3
+Data Scientist,tech,SQL,3
+Data Scientist,tech,Pandas,2
+Data Scientist,tech,NumPy,2
+Data Scientist,tech,Statistics,3
+Data Scientist,tech,Machine Learning,3
+Data Scientist,tech,Scikit-learn,2
+Data Scientist,tech,Data Visualization,2
+Data Scientist,tech,Deep Learning,1
+Data Scientist,tech,Git,1
+Data Scientist,tech,Communication,1
+ML Engineer,tech,Python,3
+ML Engineer,tech,Machine Learning,3
+ML Engineer,tech,Deep Learning,3
+ML Engineer,tech,PyTorch,2
+ML Engineer,tech,TensorFlow,1
+ML Engineer,tech,Docker,2
+ML Engineer,tech,AWS,2
+ML Engineer,tech,CI/CD,1
+ML Engineer,tech,Git,1
+ML Engineer,tech,SQL,1
+ML Engineer,tech,Statistics,1
+GenAI / LLM Engineer,tech,Python,3
+GenAI / LLM Engineer,tech,LLMs,3
+GenAI / LLM Engineer,tech,NLP,2
+GenAI / LLM Engineer,tech,LangChain,2
+GenAI / LLM Engineer,tech,RAG,3
+GenAI / LLM Engineer,tech,Vector Databases,2
+GenAI / LLM Engineer,tech,REST APIs,2
+GenAI / LLM Engineer,tech,Docker,1
+GenAI / LLM Engineer,tech,Git,1
+GenAI / LLM Engineer,tech,Deep Learning,1
+Full Stack Developer,tech,JavaScript,3
+Full Stack Developer,tech,React,3
+Full Stack Developer,tech,Node.js,2
+Full Stack Developer,tech,HTML/CSS,2
+Full Stack Developer,tech,REST APIs,2
+Full Stack Developer,tech,SQL,2
+Full Stack Developer,tech,MongoDB,1
+Full Stack Developer,tech,Git,2
+Full Stack Developer,tech,Docker,1
+Full Stack Developer,tech,Testing,1
+Backend Developer,tech,Python,3
+Backend Developer,tech,REST APIs,3
+Backend Developer,tech,Web Frameworks,2
+Backend Developer,tech,SQL,3
+Backend Developer,tech,Docker,2
+Backend Developer,tech,Git,2
+Backend Developer,tech,System Design,2
+Backend Developer,tech,Testing,2
+Backend Developer,tech,AWS,1
+Backend Developer,tech,MongoDB,1
+DevOps Engineer,tech,Linux,3
+DevOps Engineer,tech,Docker,3
+DevOps Engineer,tech,Kubernetes,3
+DevOps Engineer,tech,CI/CD,3
+DevOps Engineer,tech,AWS,3
+DevOps Engineer,tech,Terraform,2
+DevOps Engineer,tech,Git,2
+DevOps Engineer,tech,Python,1
+Data Analyst,tech,SQL,3
+Data Analyst,tech,Excel,3
+Data Analyst,tech,Data Visualization,3
+Data Analyst,tech,Statistics,2
+Data Analyst,tech,Python,2
+Data Analyst,tech,Pandas,1
+Data Analyst,tech,Communication,2
+Cybersecurity Analyst,tech,Cybersecurity,3
+Cybersecurity Analyst,tech,Networking,3
+Cybersecurity Analyst,tech,Linux,3
+Cybersecurity Analyst,tech,Python,2
+Cybersecurity Analyst,tech,Docker,1
+Cybersecurity Analyst,tech,Communication,1
+QA Engineer,tech,Testing,3
+QA Engineer,tech,Python,2
+QA Engineer,tech,JavaScript,1
+QA Engineer,tech,CI/CD,2
+QA Engineer,tech,Git,2
+QA Engineer,tech,SQL,2
+QA Engineer,tech,REST APIs,2
+QA Engineer,tech,Communication,1
+UI/UX Designer,tech,UI/UX Design,3
+UI/UX Designer,tech,HTML/CSS,2
+UI/UX Designer,tech,Communication,3
+UI/UX Designer,tech,Content Writing,1
+UI/UX Designer,tech,Product Management,1
+UI/UX Designer,tech,Leadership,1
+Product Manager,non-tech,Product Management,3
+Product Manager,non-tech,Business Analysis,2
+Product Manager,non-tech,Project Management,2
+Product Manager,non-tech,Data Visualization,2
+Product Manager,non-tech,SQL,1
+Product Manager,non-tech,Communication,3
+Product Manager,non-tech,Leadership,2
+Digital Marketer,non-tech,Marketing,3
+Digital Marketer,non-tech,SEO & Analytics,3
+Digital Marketer,non-tech,Content Writing,2
+Digital Marketer,non-tech,Data Visualization,1
+Digital Marketer,non-tech,Communication,2
+Digital Marketer,non-tech,Excel,1
+Business Analyst,non-tech,Business Analysis,3
+Business Analyst,non-tech,SQL,2
+Business Analyst,non-tech,Excel,3
+Business Analyst,non-tech,Data Visualization,2
+Business Analyst,non-tech,Project Management,2
+Business Analyst,non-tech,Communication,3
+Financial Analyst,non-tech,Financial Analysis,3
+Financial Analyst,non-tech,Excel,3
+Financial Analyst,non-tech,SQL,1
+Financial Analyst,non-tech,Data Visualization,2
+Financial Analyst,non-tech,Statistics,1
+Financial Analyst,non-tech,Communication,2
+HR / Recruiter,non-tech,HR & Recruiting,3
+HR / Recruiter,non-tech,Communication,3
+HR / Recruiter,non-tech,Leadership,2
+HR / Recruiter,non-tech,Excel,1
+HR / Recruiter,non-tech,Project Management,1
+Sales Executive,non-tech,Sales & CRM,3
+Sales Executive,non-tech,Communication,3
+Sales Executive,non-tech,Marketing,1
+Sales Executive,non-tech,Excel,1
+Sales Executive,non-tech,Leadership,1
+Sales Executive,non-tech,Customer Support,1
+Content Writer,non-tech,Content Writing,3
+Content Writer,non-tech,SEO & Analytics,2
+Content Writer,non-tech,Marketing,2
+Content Writer,non-tech,Communication,3
+Content Writer,non-tech,Data Visualization,1
+Project Manager,non-tech,Project Management,3
+Project Manager,non-tech,Communication,3
+Project Manager,non-tech,Leadership,3
+Project Manager,non-tech,Excel,1
+Project Manager,non-tech,Business Analysis,1
+Project Manager,non-tech,Financial Analysis,1
+Customer Success,non-tech,Customer Support,3
+Customer Success,non-tech,Communication,3
+Customer Success,non-tech,Sales & CRM,2
+Customer Success,non-tech,Excel,1
+Customer Success,non-tech,Project Management,1
+Operations Manager,non-tech,Operations,3
+Operations Manager,non-tech,Project Management,2
+Operations Manager,non-tech,Excel,3
+Operations Manager,non-tech,Leadership,3
+Operations Manager,non-tech,Financial Analysis,1
+Operations Manager,non-tech,Communication,2
+Software Engineer,tech,Python,2
+Software Engineer,tech,Java,2
+Software Engineer,tech,JavaScript,1
+Software Engineer,tech,Data Structures,3
+Software Engineer,tech,System Design,2
+Software Engineer,tech,Git,2
+Software Engineer,tech,Testing,2
+Software Engineer,tech,SQL,1
+Software Engineer,tech,CI/CD,1
+Data Engineer,tech,Python,3
+Data Engineer,tech,SQL,3
+Data Engineer,tech,Big Data & ETL,3
+Data Engineer,tech,AWS,2
+Data Engineer,tech,Linux,1
+Data Engineer,tech,Docker,1
+Data Engineer,tech,Git,1
+Data Engineer,tech,Pandas,1
+Mobile App Developer,tech,Mobile Development,3
+Mobile App Developer,tech,JavaScript,1
+Mobile App Developer,tech,Java,1
+Mobile App Developer,tech,REST APIs,3
+Mobile App Developer,tech,Git,2
+Mobile App Developer,tech,Testing,1
+Mobile App Developer,tech,UI/UX Design,1
+Mobile App Developer,tech,System Design,1
+Cloud Engineer,tech,AWS,3
+Cloud Engineer,tech,Linux,3
+Cloud Engineer,tech,Docker,2
+Cloud Engineer,tech,Kubernetes,2
+Cloud Engineer,tech,Terraform,2
+Cloud Engineer,tech,Networking,2
+Cloud Engineer,tech,CI/CD,1
+Cloud Engineer,tech,Python,1
+Computer Vision Engineer,tech,Computer Vision,3
+Computer Vision Engineer,tech,Python,3
+Computer Vision Engineer,tech,Deep Learning,3
+Computer Vision Engineer,tech,PyTorch,2
+Computer Vision Engineer,tech,TensorFlow,1
+Computer Vision Engineer,tech,NumPy,2
+Computer Vision Engineer,tech,Docker,1
+Computer Vision Engineer,tech,Git,1
+Database Administrator,tech,SQL,3
+Database Administrator,tech,Database Admin,3
+Database Administrator,tech,Linux,2
+Database Administrator,tech,Python,1
+Database Administrator,tech,AWS,1
+Database Administrator,tech,Networking,1
+Embedded / IoT Engineer,tech,Embedded & IoT,3
+Embedded / IoT Engineer,tech,C/C++,3
+Embedded / IoT Engineer,tech,Python,1
+Embedded / IoT Engineer,tech,Networking,1
+Embedded / IoT Engineer,tech,Linux,1
+Embedded / IoT Engineer,tech,Git,1
+Social Media Manager,non-tech,Marketing,3
+Social Media Manager,non-tech,Content Writing,3
+Social Media Manager,non-tech,SEO & Analytics,2
+Social Media Manager,non-tech,Graphic Design,2
+Social Media Manager,non-tech,Communication,2
+Social Media Manager,non-tech,Data Visualization,1
+Graphic Designer,non-tech,Graphic Design,3
+Graphic Designer,non-tech,UI/UX Design,2
+Graphic Designer,non-tech,Marketing,1
+Graphic Designer,non-tech,Communication,2
+Graphic Designer,non-tech,Content Writing,1
+Accountant,non-tech,Accounting,3
+Accountant,non-tech,Excel,3
+Accountant,non-tech,Financial Analysis,2
+Accountant,non-tech,Communication,1
+Accountant,non-tech,SQL,1
+Supply Chain Analyst,non-tech,Operations,3
+Supply Chain Analyst,non-tech,Excel,3
+Supply Chain Analyst,non-tech,SQL,2
+Supply Chain Analyst,non-tech,Data Visualization,2
+Supply Chain Analyst,non-tech,Financial Analysis,1
+Supply Chain Analyst,non-tech,Communication,2
+Technical Writer,non-tech,Content Writing,3
+Technical Writer,non-tech,Communication,3
+Technical Writer,non-tech,Git,2
+Technical Writer,non-tech,REST APIs,1
+Technical Writer,non-tech,HTML/CSS,1
+Technical Writer,non-tech,Project Management,1
+Management Consultant,non-tech,Business Analysis,3
+Management Consultant,non-tech,Excel,3
+Management Consultant,non-tech,Data Visualization,2
+Management Consultant,non-tech,Financial Analysis,2
+Management Consultant,non-tech,Communication,3
+Management Consultant,non-tech,Leadership,2
+Management Consultant,non-tech,Project Management,1
+E-commerce Manager,non-tech,Marketing,3
+E-commerce Manager,non-tech,SEO & Analytics,2
+E-commerce Manager,non-tech,Sales & CRM,2
+E-commerce Manager,non-tech,Excel,2
+E-commerce Manager,non-tech,Operations,2
+E-commerce Manager,non-tech,Customer Support,1
+E-commerce Manager,non-tech,Communication,1
+Trainer / Instructional Designer,non-tech,Teaching & Training,3
+Trainer / Instructional Designer,non-tech,Content Writing,2
+Trainer / Instructional Designer,non-tech,Communication,3
+Trainer / Instructional Designer,non-tech,UI/UX Design,1
+Trainer / Instructional Designer,non-tech,Project Management,1
+Frontend Developer,tech,JavaScript,3
+Frontend Developer,tech,React,3
+Frontend Developer,tech,HTML/CSS,3
+Frontend Developer,tech,Frontend Frameworks,1
+Frontend Developer,tech,REST APIs,2
+Frontend Developer,tech,Git,2
+Frontend Developer,tech,Testing,1
+Frontend Developer,tech,UI/UX Design,1
+Java Developer,tech,Java,3
+Java Developer,tech,Web Frameworks,3
+Java Developer,tech,SQL,2
+Java Developer,tech,REST APIs,2
+Java Developer,tech,Git,2
+Java Developer,tech,Testing,2
+Java Developer,tech,Docker,1
+Java Developer,tech,System Design,1
+.NET Developer,tech,C#/.NET,3
+.NET Developer,tech,SQL,3
+.NET Developer,tech,REST APIs,2
+.NET Developer,tech,Git,2
+.NET Developer,tech,Testing,2
+.NET Developer,tech,AWS,1
+.NET Developer,tech,Docker,1
+PHP / Web Developer,tech,PHP,3
+PHP / Web Developer,tech,SQL,3
+PHP / Web Developer,tech,HTML/CSS,2
+PHP / Web Developer,tech,JavaScript,2
+PHP / Web Developer,tech,Git,2
+PHP / Web Developer,tech,REST APIs,1
+Python Developer,tech,Python,3
+Python Developer,tech,Web Frameworks,3
+Python Developer,tech,SQL,2
+Python Developer,tech,REST APIs,2
+Python Developer,tech,Git,2
+Python Developer,tech,Testing,2
+Python Developer,tech,Docker,1
+Blockchain Developer,tech,Blockchain,3
+Blockchain Developer,tech,JavaScript,2
+Blockchain Developer,tech,Data Structures,2
+Blockchain Developer,tech,Git,2
+Blockchain Developer,tech,Testing,1
+Blockchain Developer,tech,Cybersecurity,1
+Game Developer,tech,Game Development,3
+Game Developer,tech,C#/.NET,2
+Game Developer,tech,C/C++,2
+Game Developer,tech,Data Structures,2
+Game Developer,tech,Git,2
+Game Developer,tech,Graphic Design,1
+MLOps Engineer,tech,MLOps,3
+MLOps Engineer,tech,Python,3
+MLOps Engineer,tech,Docker,3
+MLOps Engineer,tech,Kubernetes,2
+MLOps Engineer,tech,CI/CD,2
+MLOps Engineer,tech,AWS,2
+MLOps Engineer,tech,Machine Learning,2
+MLOps Engineer,tech,Git,1
+AI Research Scientist,tech,Deep Learning,3
+AI Research Scientist,tech,Machine Learning,3
+AI Research Scientist,tech,Python,3
+AI Research Scientist,tech,PyTorch,3
+AI Research Scientist,tech,Statistics,2
+AI Research Scientist,tech,NLP,1
+AI Research Scientist,tech,Communication,1
+NLP Engineer,tech,NLP,3
+NLP Engineer,tech,Python,3
+NLP Engineer,tech,Deep Learning,2
+NLP Engineer,tech,LLMs,2
+NLP Engineer,tech,PyTorch,2
+NLP Engineer,tech,Machine Learning,2
+NLP Engineer,tech,Git,1
+AI Application Developer,tech,LLMs,3
+AI Application Developer,tech,LangChain,3
+AI Application Developer,tech,RAG,2
+AI Application Developer,tech,Vector Databases,2
+AI Application Developer,tech,Python,3
+AI Application Developer,tech,REST APIs,2
+AI Application Developer,tech,Docker,1
+BI Developer,tech,Data Visualization,3
+BI Developer,tech,SQL,3
+BI Developer,tech,Excel,2
+BI Developer,tech,Big Data & ETL,2
+BI Developer,tech,Statistics,1
+BI Developer,tech,Communication,2
+Site Reliability Engineer,tech,Monitoring,3
+Site Reliability Engineer,tech,Linux,3
+Site Reliability Engineer,tech,Kubernetes,2
+Site Reliability Engineer,tech,Docker,2
+Site Reliability Engineer,tech,Python,2
+Site Reliability Engineer,tech,CI/CD,2
+Site Reliability Engineer,tech,AWS,2
+IT Support Engineer,tech,IT Support,3
+IT Support Engineer,tech,Networking,2
+IT Support Engineer,tech,Linux,1
+IT Support Engineer,tech,Communication,3
+IT Support Engineer,tech,Customer Support,2
+Systems Administrator,tech,Linux,3
+Systems Administrator,tech,IT Support,2
+Systems Administrator,tech,Networking,2
+Systems Administrator,tech,Monitoring,2
+Systems Administrator,tech,Python,1
+Systems Administrator,tech,AWS,1
+Systems Administrator,tech,Cybersecurity,1
+Network Engineer,tech,Networking,3
+Network Engineer,tech,Cybersecurity,2
+Network Engineer,tech,Linux,2
+Network Engineer,tech,Python,1
+Network Engineer,tech,IT Support,1
+Network Engineer,tech,Monitoring,1
+Penetration Tester,tech,Ethical Hacking,3
+Penetration Tester,tech,Cybersecurity,3
+Penetration Tester,tech,Networking,2
+Penetration Tester,tech,Linux,2
+Penetration Tester,tech,Python,2
+Penetration Tester,tech,Communication,1
+SOC Analyst,tech,Cybersecurity,3
+SOC Analyst,tech,Monitoring,2
+SOC Analyst,tech,Networking,2
+SOC Analyst,tech,Linux,2
+SOC Analyst,tech,Python,1
+SOC Analyst,tech,Communication,2
+Robotics Engineer,tech,Robotics,3
+Robotics Engineer,tech,Python,3
+Robotics Engineer,tech,C/C++,2
+Robotics Engineer,tech,Embedded & IoT,2
+Robotics Engineer,tech,Linux,2
+Robotics Engineer,tech,Computer Vision,1
+Robotics Engineer,tech,Git,1
+Signal Processing Engineer,tech,Signal Processing,3
+Signal Processing Engineer,tech,Python,3
+Signal Processing Engineer,tech,NumPy,2
+Signal Processing Engineer,tech,Statistics,2
+Signal Processing Engineer,tech,Data Visualization,2
+Signal Processing Engineer,tech,Machine Learning,1
+Signal Processing Engineer,tech,C/C++,1
+Electronics Engineer,tech,Electronics,3
+Electronics Engineer,tech,Embedded & IoT,2
+Electronics Engineer,tech,C/C++,2
+Electronics Engineer,tech,Signal Processing,1
+Electronics Engineer,tech,CAD & Design,1
+Electronics Engineer,tech,Communication,1
+Mechanical Design Engineer,tech,CAD & Design,3
+Mechanical Design Engineer,tech,Communication,2
+Mechanical Design Engineer,tech,Project Management,1
+Mechanical Design Engineer,tech,Excel,1
+Mechanical Design Engineer,tech,Statistics,1
+Mechanical Design Engineer,tech,Python,1
+Test Automation Engineer,tech,Testing,3
+Test Automation Engineer,tech,Python,3
+Test Automation Engineer,tech,CI/CD,2
+Test Automation Engineer,tech,Git,2
+Test Automation Engineer,tech,REST APIs,2
+Test Automation Engineer,tech,JavaScript,1
+Test Automation Engineer,tech,Docker,1
+Solutions Architect,tech,AWS,3
+Solutions Architect,tech,System Design,3
+Solutions Architect,tech,Communication,3
+Solutions Architect,tech,Networking,1
+Solutions Architect,tech,Docker,1
+Solutions Architect,tech,Cybersecurity,1
+Solutions Architect,tech,Database Admin,1
+Analytics Engineer,tech,SQL,3
+Analytics Engineer,tech,Big Data & ETL,3
+Analytics Engineer,tech,Data Visualization,2
+Analytics Engineer,tech,Python,2
+Analytics Engineer,tech,Git,2
+Analytics Engineer,tech,Communication,1
+Platform Engineer,tech,Kubernetes,3
+Platform Engineer,tech,Terraform,3
+Platform Engineer,tech,CI/CD,3
+Platform Engineer,tech,Docker,2
+Platform Engineer,tech,Linux,2
+Platform Engineer,tech,AWS,2
+Platform Engineer,tech,Monitoring,1
+WordPress Developer,tech,PHP,3
+WordPress Developer,tech,HTML/CSS,3
+WordPress Developer,tech,JavaScript,2
+WordPress Developer,tech,SQL,1
+WordPress Developer,tech,SEO & Analytics,1
+WordPress Developer,tech,Git,1
+Android Developer,tech,Mobile Development,3
+Android Developer,tech,Java,3
+Android Developer,tech,REST APIs,2
+Android Developer,tech,Git,2
+Android Developer,tech,Testing,1
+Android Developer,tech,SQL,1
+Android Developer,tech,UI/UX Design,1
+Flutter Developer,tech,Mobile Development,3
+Flutter Developer,tech,UI/UX Design,2
+Flutter Developer,tech,REST APIs,2
+Flutter Developer,tech,Git,2
+Flutter Developer,tech,Testing,1
+Flutter Developer,tech,JavaScript,1
+Firmware Engineer,tech,C/C++,3
+Firmware Engineer,tech,Embedded & IoT,3
+Firmware Engineer,tech,Electronics,2
+Firmware Engineer,tech,Git,2
+Firmware Engineer,tech,Linux,1
+Firmware Engineer,tech,Testing,1
+Edge AI Engineer,tech,Embedded & IoT,3
+Edge AI Engineer,tech,Deep Learning,2
+Edge AI Engineer,tech,Python,2
+Edge AI Engineer,tech,C/C++,2
+Edge AI Engineer,tech,TensorFlow,2
+Edge AI Engineer,tech,Signal Processing,1
+Edge AI Engineer,tech,Linux,1
+Technical Program Manager,tech,Project Management,3
+Technical Program Manager,tech,Communication,3
+Technical Program Manager,tech,System Design,2
+Technical Program Manager,tech,Leadership,2
+Technical Program Manager,tech,Product Management,1
+Technical Program Manager,tech,Data Visualization,1
+ERP / SAP Consultant,tech,ERP/SAP,3
+ERP / SAP Consultant,tech,Business Analysis,3
+ERP / SAP Consultant,tech,Communication,3
+ERP / SAP Consultant,tech,SQL,2
+ERP / SAP Consultant,tech,Project Management,2
+ERP / SAP Consultant,tech,Excel,1
+Brand Manager,non-tech,Marketing,3
+Brand Manager,non-tech,Communication,3
+Brand Manager,non-tech,Content Writing,2
+Brand Manager,non-tech,Leadership,2
+Brand Manager,non-tech,Graphic Design,1
+Brand Manager,non-tech,Data Visualization,1
+Public Relations Specialist,non-tech,Communication,3
+Public Relations Specialist,non-tech,Content Writing,3
+Public Relations Specialist,non-tech,Marketing,2
+Public Relations Specialist,non-tech,Leadership,1
+Public Relations Specialist,non-tech,SEO & Analytics,1
+Event Manager,non-tech,Project Management,3
+Event Manager,non-tech,Communication,3
+Event Manager,non-tech,Operations,2
+Event Manager,non-tech,Leadership,2
+Event Manager,non-tech,Excel,1
+Event Manager,non-tech,Marketing,1
+Copywriter,non-tech,Content Writing,3
+Copywriter,non-tech,Marketing,3
+Copywriter,non-tech,SEO & Analytics,2
+Copywriter,non-tech,Communication,2
+Video Editor,non-tech,Video Editing,3
+Video Editor,non-tech,Graphic Design,2
+Video Editor,non-tech,Communication,2
+Video Editor,non-tech,Content Writing,1
+Video Editor,non-tech,Marketing,1
+Business Development Executive,non-tech,Sales & CRM,3
+Business Development Executive,non-tech,Communication,3
+Business Development Executive,non-tech,Marketing,2
+Business Development Executive,non-tech,Excel,1
+Business Development Executive,non-tech,Leadership,1
+Business Development Executive,non-tech,Business Analysis,1
+Account Manager,non-tech,Sales & CRM,3
+Account Manager,non-tech,Communication,3
+Account Manager,non-tech,Customer Support,2
+Account Manager,non-tech,Excel,1
+Account Manager,non-tech,Project Management,1
+Customer Support Executive,non-tech,Customer Support,3
+Customer Support Executive,non-tech,Communication,3
+Customer Support Executive,non-tech,Sales & CRM,1
+Customer Support Executive,non-tech,Excel,1
+Customer Support Executive,non-tech,IT Support,1
+Talent Acquisition Specialist,non-tech,HR & Recruiting,3
+Talent Acquisition Specialist,non-tech,Communication,3
+Talent Acquisition Specialist,non-tech,Sales & CRM,1
+Talent Acquisition Specialist,non-tech,Excel,1
+Talent Acquisition Specialist,non-tech,Leadership,1
+HR Generalist,non-tech,HR & Recruiting,3
+HR Generalist,non-tech,Communication,3
+HR Generalist,non-tech,Legal & Compliance,2
+HR Generalist,non-tech,Excel,2
+HR Generalist,non-tech,Leadership,1
+HR Generalist,non-tech,Teaching & Training,1
+Payroll & Compliance Executive,non-tech,Accounting,3
+Payroll & Compliance Executive,non-tech,Excel,3
+Payroll & Compliance Executive,non-tech,Legal & Compliance,2
+Payroll & Compliance Executive,non-tech,HR & Recruiting,2
+Payroll & Compliance Executive,non-tech,Communication,1
+Auditor,non-tech,Accounting,3
+Auditor,non-tech,Excel,3
+Auditor,non-tech,Financial Analysis,2
+Auditor,non-tech,Legal & Compliance,2
+Auditor,non-tech,Communication,2
+Tax Consultant,non-tech,Accounting,3
+Tax Consultant,non-tech,Legal & Compliance,3
+Tax Consultant,non-tech,Excel,2
+Tax Consultant,non-tech,Communication,2
+Tax Consultant,non-tech,Financial Analysis,1
+Investment Banking Analyst,non-tech,Financial Analysis,3
+Investment Banking Analyst,non-tech,Excel,3
+Investment Banking Analyst,non-tech,Communication,2
+Investment Banking Analyst,non-tech,Data Visualization,1
+Investment Banking Analyst,non-tech,Statistics,1
+Risk Analyst,non-tech,Financial Analysis,3
+Risk Analyst,non-tech,Excel,3
+Risk Analyst,non-tech,Statistics,2
+Risk Analyst,non-tech,Legal & Compliance,2
+Risk Analyst,non-tech,SQL,1
+Risk Analyst,non-tech,Communication,1
+Market Research Analyst,non-tech,Statistics,3
+Market Research Analyst,non-tech,Data Visualization,3
+Market Research Analyst,non-tech,Excel,2
+Market Research Analyst,non-tech,Marketing,2
+Market Research Analyst,non-tech,Communication,2
+Market Research Analyst,non-tech,SQL,1
+Business Operations Associate,non-tech,Operations,3
+Business Operations Associate,non-tech,Excel,3
+Business Operations Associate,non-tech,Project Management,2
+Business Operations Associate,non-tech,Business Analysis,2
+Business Operations Associate,non-tech,Communication,2
+Business Operations Associate,non-tech,SQL,1
+Logistics Coordinator,non-tech,Operations,3
+Logistics Coordinator,non-tech,Communication,3
+Logistics Coordinator,non-tech,Excel,2
+Logistics Coordinator,non-tech,Project Management,1
+Logistics Coordinator,non-tech,Customer Support,1
+Procurement Specialist,non-tech,Operations,3
+Procurement Specialist,non-tech,Communication,3
+Procurement Specialist,non-tech,Excel,2
+Procurement Specialist,non-tech,Legal & Compliance,2
+Procurement Specialist,non-tech,Financial Analysis,1
+Quality Manager,non-tech,Operations,3
+Quality Manager,non-tech,Project Management,2
+Quality Manager,non-tech,Statistics,2
+Quality Manager,non-tech,Leadership,2
+Quality Manager,non-tech,Communication,2
+Quality Manager,non-tech,Legal & Compliance,1
+Scrum Master / Agile Coach,non-tech,Project Management,3
+Scrum Master / Agile Coach,non-tech,Leadership,3
+Scrum Master / Agile Coach,non-tech,Communication,3
+Scrum Master / Agile Coach,non-tech,Product Management,1
+Scrum Master / Agile Coach,non-tech,Teaching & Training,1
+Program Manager,non-tech,Project Management,3
+Program Manager,non-tech,Leadership,3
+Program Manager,non-tech,Communication,3
+Program Manager,non-tech,Business Analysis,1
+Program Manager,non-tech,Financial Analysis,1
+Program Manager,non-tech,Operations,1
+Content Strategist,non-tech,Content Writing,3
+Content Strategist,non-tech,SEO & Analytics,3
+Content Strategist,non-tech,Marketing,2
+Content Strategist,non-tech,Communication,2
+Content Strategist,non-tech,Data Visualization,1
+SEO Specialist,non-tech,SEO & Analytics,3
+SEO Specialist,non-tech,Content Writing,2
+SEO Specialist,non-tech,Marketing,2
+SEO Specialist,non-tech,HTML/CSS,1
+SEO Specialist,non-tech,Data Visualization,1
+SEO Specialist,non-tech,Excel,1
+Performance Marketing Manager,non-tech,Marketing,3
+Performance Marketing Manager,non-tech,SEO & Analytics,3
+Performance Marketing Manager,non-tech,Data Visualization,2
+Performance Marketing Manager,non-tech,Excel,2
+Performance Marketing Manager,non-tech,Sales & CRM,1
+Performance Marketing Manager,non-tech,Communication,1
+Email Marketing Specialist,non-tech,Marketing,3
+Email Marketing Specialist,non-tech,Content Writing,2
+Email Marketing Specialist,non-tech,SEO & Analytics,2
+Email Marketing Specialist,non-tech,Sales & CRM,2
+Email Marketing Specialist,non-tech,HTML/CSS,1
+Email Marketing Specialist,non-tech,Data Visualization,1
+Community Manager,non-tech,Communication,3
+Community Manager,non-tech,Marketing,2
+Community Manager,non-tech,Content Writing,2
+Community Manager,non-tech,Customer Support,2
+Community Manager,non-tech,Graphic Design,1
+UX Researcher,non-tech,UI/UX Design,3
+UX Researcher,non-tech,Communication,3
+UX Researcher,non-tech,Statistics,2
+UX Researcher,non-tech,Data Visualization,2
+UX Researcher,non-tech,Content Writing,1
+UX Researcher,non-tech,Product Management,1
+School Teacher / Educator,non-tech,Teaching & Training,3
+School Teacher / Educator,non-tech,Communication,3
+School Teacher / Educator,non-tech,Content Writing,2
+School Teacher / Educator,non-tech,Leadership,1
+School Teacher / Educator,non-tech,Excel,1
+Corporate Trainer,non-tech,Teaching & Training,3
+Corporate Trainer,non-tech,Communication,3
+Corporate Trainer,non-tech,Leadership,2
+Corporate Trainer,non-tech,HR & Recruiting,1
+Corporate Trainer,non-tech,Content Writing,1
+Corporate Trainer,non-tech,Project Management,1
+Healthcare Administrator,non-tech,Operations,3
+Healthcare Administrator,non-tech,Communication,3
+Healthcare Administrator,non-tech,Excel,2
+Healthcare Administrator,non-tech,Leadership,2
+Healthcare Administrator,non-tech,Legal & Compliance,2
+Healthcare Administrator,non-tech,Accounting,1
+Legal & Compliance Associate,non-tech,Legal & Compliance,3
+Legal & Compliance Associate,non-tech,Communication,3
+Legal & Compliance Associate,non-tech,Content Writing,2
+Legal & Compliance Associate,non-tech,Excel,1
+Legal & Compliance Associate,non-tech,Project Management,1

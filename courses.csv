@@ -1,0 +1,153 @@
+skill,type,title,provider,hours
+Python,free,CS50's Introduction to Programming with Python,Harvard / edX,45
+Python,paid,Python for Everybody Specialization,Coursera,60
+Java,free,Java Programming MOOC,University of Helsinki,80
+Java,paid,Java Programming and Software Engineering Fundamentals,Coursera (Duke),60
+JavaScript,free,JavaScript Algorithms and Data Structures,freeCodeCamp,60
+JavaScript,paid,The Complete JavaScript Course,Udemy,70
+SQL,free,Intro to SQL,Kaggle Learn,4
+SQL,paid,The Complete SQL Bootcamp,Udemy,9
+Pandas,free,Pandas,Kaggle Learn,4
+Pandas,paid,Data Analysis with Pandas and Python,Udemy,20
+NumPy,free,NumPy Tutorial for Beginners,freeCodeCamp (YouTube),1
+NumPy,paid,Python for Data Science and Machine Learning Bootcamp,Udemy,25
+Statistics,free,Statistics and Probability,Khan Academy,40
+Statistics,paid,Statistics with Python Specialization,Coursera (U. Michigan),50
+Data Visualization,free,Data Visualization,Kaggle Learn,4
+Data Visualization,paid,Data Visualization with Tableau Specialization,Coursera (UC Davis),40
+Machine Learning,free,Machine Learning Crash Course,Google,15
+Machine Learning,paid,Machine Learning Specialization,Coursera (Andrew Ng),90
+Scikit-learn,free,Intro to Machine Learning,Kaggle Learn,3
+Scikit-learn,paid,Machine Learning with Python,Coursera (IBM),20
+Deep Learning,free,Practical Deep Learning for Coders,fast.ai,70
+Deep Learning,paid,Deep Learning Specialization,Coursera (DeepLearning.AI),80
+PyTorch,free,PyTorch for Deep Learning Full Course,freeCodeCamp (YouTube),25
+PyTorch,paid,PyTorch for Deep Learning Bootcamp,Udemy,50
+TensorFlow,free,TensorFlow 2.0 Complete Course,freeCodeCamp (YouTube),7
+TensorFlow,paid,TensorFlow Developer Professional Certificate,Coursera (DeepLearning.AI),60
+NLP,free,Hugging Face NLP Course,Hugging Face,25
+NLP,paid,Natural Language Processing Specialization,Coursera (DeepLearning.AI),80
+LLMs,free,ChatGPT Prompt Engineering for Developers,DeepLearning.AI,2
+LLMs,paid,Generative AI with Large Language Models,Coursera (DeepLearning.AI + AWS),16
+LangChain,free,LangChain for LLM Application Development,DeepLearning.AI,2
+LangChain,paid,LangChain: Develop LLM Powered Applications,Udemy,10
+RAG,free,Building and Evaluating Advanced RAG,DeepLearning.AI,2
+RAG,paid,Retrieval Augmented Generation (RAG),Coursera (DeepLearning.AI),12
+Vector Databases,free,Vector Databases: from Embeddings to Applications,DeepLearning.AI,2
+Vector Databases,paid,Vector Databases and Embeddings Course,Udemy,6
+React,free,React Course for Beginners,freeCodeCamp (YouTube),12
+React,paid,React: The Complete Guide,Udemy,60
+Node.js,free,Node.js and Express.js Full Course,freeCodeCamp (YouTube),8
+Node.js,paid,The Complete Node.js Developer Course,Udemy,35
+HTML/CSS,free,Responsive Web Design,freeCodeCamp,40
+HTML/CSS,paid,The Web Developer Bootcamp,Udemy,60
+REST APIs,free,APIs for Beginners,freeCodeCamp (YouTube),2
+REST APIs,paid,REST APIs with Flask and Python,Udemy,17
+Web Frameworks,free,FastAPI Course,freeCodeCamp (YouTube),19
+Web Frameworks,paid,Django for Everybody,Coursera (U. Michigan),40
+MongoDB,free,MongoDB Basics,MongoDB University,10
+MongoDB,paid,MongoDB: The Complete Developer's Guide,Udemy,17
+Git,free,Git and GitHub for Beginners,freeCodeCamp (YouTube),1
+Git,paid,Version Control with Git,Coursera (Atlassian),10
+Testing,free,Software Testing Tutorial,Guru99,10
+Testing,paid,Software Testing and Automation Specialization,Coursera (U. Minnesota),40
+System Design,free,The System Design Primer,GitHub,20
+System Design,paid,Grokking the System Design Interview,Educative,20
+Docker,free,Docker Tutorial for Beginners,TechWorld with Nana (YouTube),3
+Docker,paid,Docker and Kubernetes: The Practical Guide,Udemy,23
+Kubernetes,free,Kubernetes Tutorial for Beginners,TechWorld with Nana (YouTube),4
+Kubernetes,paid,Kubernetes for the Absolute Beginners,Udemy,6
+AWS,free,AWS Cloud Practitioner Essentials,AWS Skill Builder,6
+AWS,paid,AWS Certified Cloud Practitioner,Udemy,14
+CI/CD,free,GitHub Actions tutorials,GitHub Skills,5
+CI/CD,paid,"Jenkins, From Zero To Hero",Udemy,10
+Linux,free,Introduction to Linux,Linux Foundation / edX,40
+Linux,paid,Linux Mastery: Master the Linux Command Line,Udemy,11
+Terraform,free,Terraform tutorials,HashiCorp Developer,10
+Terraform,paid,HashiCorp Certified Terraform Associate Prep,Udemy,12
+Communication,free,Communication Skills,Great Learning Academy,3
+Communication,paid,Improving Communication Skills,Coursera (UPenn),10
+Leadership,free,Leadership Fundamentals,Great Learning Academy,3
+Leadership,paid,Inspiring and Motivating Individuals,Coursera (U. Michigan),15
+Excel,free,Excel for Beginners,Microsoft Learn,4
+Excel,paid,Excel Skills for Business Specialization,Coursera (Macquarie),60
+Business Analysis,free,Introduction to Business Analysis,Alison,3
+Business Analysis,paid,Business Analysis and Process Management,Coursera,15
+Project Management,free,Agile and Scrum Basics,Atlassian,5
+Project Management,paid,Google Project Management Certificate,Coursera,120
+Product Management,free,Product Management Basics,Great Learning Academy,3
+Product Management,paid,Digital Product Management Specialization,Coursera (U. Virginia),20
+Financial Analysis,free,Finance and Capital Markets,Khan Academy,10
+Financial Analysis,paid,Financial Modeling and Valuation Analyst (FMVA),CFI,80
+Operations,free,Supply Chain Fundamentals,MITx / edX,50
+Operations,paid,Operations Management,Coursera (Wharton),20
+Marketing,free,Fundamentals of Digital Marketing,Google Digital Garage,40
+Marketing,paid,Digital Marketing Specialization,Coursera (UIUC),70
+SEO & Analytics,free,SEO Certification Course,HubSpot Academy,3
+SEO & Analytics,paid,Search Engine Optimization (SEO) Specialization,Coursera (UC Davis),40
+Sales & CRM,free,Inbound Sales Course,HubSpot Academy,4
+Sales & CRM,paid,Sales Training: Practical Sales Techniques,Udemy,10
+Customer Support,free,Customer Service Course,HubSpot Academy,3
+Customer Support,paid,Customer Service Fundamentals,LinkedIn Learning,2
+HR & Recruiting,free,Introduction to Human Resource Management,Alison,3
+HR & Recruiting,paid,Human Resource Management: HR for People Managers,Coursera (U. Minnesota),25
+Content Writing,free,Content Marketing Certification,HubSpot Academy,5
+Content Writing,paid,Content Strategy for Professionals,Coursera (Northwestern),40
+UI/UX Design,free,Figma UI UX Design Tutorial,freeCodeCamp (YouTube),6
+UI/UX Design,paid,Google UX Design Certificate,Coursera,160
+Cybersecurity,free,Cybersecurity Essentials,Cisco Networking Academy,30
+Cybersecurity,paid,Google Cybersecurity Certificate,Coursera,150
+Networking,free,Networking Basics,Cisco Networking Academy,20
+Networking,paid,The Bits and Bytes of Computer Networking,Coursera (Google),25
+Data Structures,free,Data Structures and Algorithms Course,freeCodeCamp (YouTube),8
+Data Structures,paid,Algorithms Specialization,Coursera (Stanford),80
+C/C++,free,C Programming for Beginners,freeCodeCamp (YouTube),4
+C/C++,paid,Beginning C++ Programming,Udemy,45
+Mobile Development,free,Android Basics with Compose,Google Developers,40
+Mobile Development,paid,The Complete Flutter Development Bootcamp,Udemy,28
+Computer Vision,free,OpenCV Python Tutorial,freeCodeCamp (YouTube),4
+Computer Vision,paid,Computer Vision Basics,Coursera (SUNY Buffalo),20
+Big Data & ETL,free,Data Engineering Zoomcamp,DataTalks.Club,80
+Big Data & ETL,paid,IBM Data Engineering Professional Certificate,Coursera,100
+Embedded & IoT,free,Arduino Programming Course,Arduino,10
+Embedded & IoT,paid,Introduction to Embedded Systems Software,Coursera (CU Boulder),20
+Database Admin,free,PostgreSQL Tutorial,postgresqltutorial.com,10
+Database Admin,paid,Databases and SQL for Data Science,Coursera (IBM),20
+Graphic Design,free,Canva Design School,Canva,5
+Graphic Design,paid,Graphic Design Specialization,Coursera (CalArts),80
+Accounting,free,Accounting and Financial Statements,Khan Academy,15
+Accounting,paid,Financial Accounting Fundamentals,Coursera (U. Virginia),20
+Teaching & Training,free,Teaching Skills Basics,Alison,3
+Teaching & Training,paid,Instructional Design Foundations and Applications,Coursera,50
+Blockchain,free,Solidity and Smart Contract Full Course,freeCodeCamp (YouTube),32
+Blockchain,paid,Blockchain Specialization,Coursera (U. Buffalo),80
+Game Development,free,Unity Learn Pathways,Unity Learn,40
+Game Development,paid,Complete C# Unity Game Developer 2D,Udemy,30
+Frontend Frameworks,free,Vue.js Course for Beginners,freeCodeCamp (YouTube),4
+Frontend Frameworks,paid,Angular: The Complete Guide,Udemy,35
+C#/.NET,free,Take your first steps with C#,Microsoft Learn,10
+C#/.NET,paid,C# Basics for Beginners,Udemy,5
+PHP,free,PHP Programming Language Tutorial,freeCodeCamp (YouTube),7
+PHP,paid,PHP for Beginners: Become a PHP Master,Udemy,38
+MLOps,free,Made With ML,Made With ML,30
+MLOps,paid,Machine Learning Engineering for Production (MLOps),Coursera (DeepLearning.AI),80
+Robotics,free,ROS Tutorials,ROS Documentation,15
+Robotics,paid,Modern Robotics Specialization,Coursera (Northwestern),80
+Monitoring,free,Prometheus Monitoring Tutorial,TechWorld with Nana (YouTube),2
+Monitoring,paid,Site Reliability Engineering: Measuring and Managing Reliability,Coursera (Google Cloud),10
+IT Support,free,IT Essentials,Cisco Networking Academy,70
+IT Support,paid,Google IT Support Professional Certificate,Coursera,180
+Ethical Hacking,free,Ethical Hacking Full Course,freeCodeCamp (YouTube),15
+Ethical Hacking,paid,Learn Ethical Hacking From Scratch,Udemy,15
+ERP/SAP,free,SAP Learning Journeys,SAP Learning,20
+ERP/SAP,paid,SAP Fundamentals Course,Udemy,10
+Signal Processing,free,Signals and Systems,MIT OpenCourseWare,60
+Signal Processing,paid,Digital Signal Processing Specialization,Coursera (EPFL),60
+Electronics,free,Electrical Engineering Circuits,Khan Academy,20
+Electronics,paid,Introduction to Electronics,Coursera (Georgia Tech),40
+CAD & Design,free,Fusion 360 Tutorials for Beginners,Autodesk,10
+CAD & Design,paid,SOLIDWORKS Beginner to Advanced,Udemy,20
+Video Editing,free,Video Editing Basics,Adobe Learn,5
+Video Editing,paid,Adobe Premiere Pro Masterclass,Udemy,15
+Legal & Compliance,free,Contract Law,Harvard / edX,40
+Legal & Compliance,paid,Corporate Compliance Fundamentals,LinkedIn Learning,2

@@ -1,0 +1,13 @@
+Vaishnavi Rao | vaishnavi@example.com | +91 98765 43210
+SUMMARY
+Final-year engineering student with strong Python and data analysis skills.
+EDUCATION
+B.Tech Computer Science, 2027
+SKILLS
+Python, SQL, Pandas, NumPy, Matplotlib, Git, HTML, CSS
+PROJECTS
+Speed breaker detection: Built a Python pipeline with Pandas and NumPy to process accelerometer data, trained a random forest classifier (machine learning) reaching 92% accuracy.
+Dashboard: Developed visualization dashboards with Matplotlib and Plotly for 10,000+ sensor readings.
+EXPERIENCE
+Intern: Developed REST API endpoints with Flask, collaborated with a team of 4 and presented results to stakeholders.
+Led a student team of 3 for a hackathon project using GitHub.
